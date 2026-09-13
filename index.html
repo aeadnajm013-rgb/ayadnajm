@@ -3,639 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MamostaHemnIT - Account Info</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;600;700;800;900&family=Montserrat:wght@800;900&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <title>پشکنینی هەژمار</title>
     <style>
+        :root {
+            --bg-dark: #0a0f1d;
+            --card-bg: #121929;
+            --primary-blue: #00d2ff;
+            --secondary-blue: #3a7bd5;
+            --neon-glow: rgba(0, 210, 255, 0.4);
+            --text-color: #ffffff;
+            --text-secondary: #a0aec0;
+            --danger-red: #ff4757;
+            --border-color: #1e293b;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Noto Kufi Arabic', 'Poppins', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
-            background: #030712;
-            background: radial-gradient(circle at top, #0f172a 0%, #030712 100%);
-            min-height: 100vh;
+            background-color: var(--bg-dark);
+            color: var(--text-color);
             display: flex;
             justify-content: center;
             align-items: center;
+            min-height: 100vh;
             padding: 20px;
         }
 
         .container {
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 2px solid #ef4444;
-            box-shadow: 0 0 25px rgba(239, 68, 68, 0.3);
-            width: 100%;
-            max-width: 440px;
-            border-radius: 28px;
-            overflow: hidden;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
             padding: 25px;
-            text-align: center;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px var(--neon-glow);
             position: relative;
         }
 
-        /* بەشی سەرەوە: هەڵبژاردنی زمان */
-        .top-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--primary-blue);
+            text-shadow: 0 0 8px var(--neon-glow);
+        }
+
+        .form-group {
             margin-bottom: 15px;
         }
 
-        .lang-selector {
-            display: flex;
-            background: rgba(3, 7, 18, 0.8);
-            border: 1px solid #3b82f6;
-            border-radius: 20px;
-            padding: 3px;
-            gap: 2px;
-        }
-
-        .lang-btn {
-            background: transparent;
-            border: none;
-            color: #94a3b8;
-            padding: 5px 12px;
-            font-size: 11px;
-            font-weight: 700;
-            border-radius: 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .lang-btn.active {
-            background: #2563eb;
-            color: #ffffff;
-            box-shadow: 0 0 10px #2563eb;
-        }
-
-        /* دوگمەی واتساپ */
-        .whatsapp-banner {
-            width: 38px;
-            height: 38px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            color: #ffffff;
-            text-decoration: none;
-            border-radius: 50%;
-            box-shadow: 0 0 12px rgba(16, 185, 129, 0.5);
-            border: 1px solid #34d399;
-            transition: all 0.3s ease;
-        }
-        .whatsapp-banner:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 20px rgba(16, 185, 129, 0.8);
-        }
-        .whatsapp-banner svg {
-            width: 20px;
-            height: 20px;
-            fill: #ffffff;
-        }
-        
-        .logo-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 5px;
-            margin-bottom: 20px;
-        }
-
-        /* LED ی شین و سوور */
-        .db-logo {
-            width: 170px;
-            height: 170px;
-            border-radius: 50%;
-            margin-bottom: 15px;
-            position: relative;
-            cursor: pointer;
-            animation: ledPulseBlueRed 2s infinite alternate;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #000000;
-            padding: 2px;
-            overflow: hidden;
-        }
-
-        .db-logo svg {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-        }
-
-        .text-brand {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 900;
-            font-size: 32px;
-            letter-spacing: -0.5px;
-        }
-        .text-num {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 900;
-            font-size: 52px;
-        }
-        .text-sal {
-            font-family: 'Noto Kufi Arabic', sans-serif;
-            font-weight: 800;
-            font-size: 30px;
-            fill: #ffffff;
-        }
-        .text-exp {
-            font-family: 'Noto Kufi Arabic', sans-serif;
-            font-weight: 700;
-            font-size: 15px;
-            fill: #ffffff;
-        }
-        .text-it-sub {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            font-size: 13px;
-            fill: #00a8ff;
-            letter-spacing: 3px;
-        }
-
-        @keyframes ledPulseBlueRed {
-            0% {
-                box-shadow: 0 0 15px #3b82f6, inset 0 0 10px #3b82f6;
-                border: 2px solid #2563eb;
-            }
-            50% {
-                box-shadow: 0 0 25px #ef4444, 0 0 10px #3b82f6, inset 0 0 15px #ef4444;
-                border: 2px solid #ef4444;
-                transform: scale(1.02);
-            }
-            100% {
-                box-shadow: 0 0 35px #dc2626, 0 0 20px #1d4ed8, inset 0 0 20px #dc2626;
-                border: 2px solid #2563eb;
-            }
-        }
-
-        .account-badge {
-            background: rgba(3, 7, 18, 0.9);
-            border: 1px solid #3b82f6;
-            box-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
-            padding: 6px 16px;
-            border-radius: 20px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .account-badge span {
-            font-size: 13px;
-            color: #94a3b8;
-            font-weight: 600;
-        }
-        .account-badge input {
-            background: transparent;
-            border: none;
-            color: #60a5fa;
-            font-size: 15px;
-            font-weight: 700;
-            width: 75px;
-            outline: none;
-            text-align: center;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .warning-box {
-            background: rgba(239, 68, 68, 0.1);
-            border: 2px solid #ef4444;
-            box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
-            border-radius: 18px;
-            padding: 20px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .warning-title {
-            color: #fca5a5;
-            font-size: 16px;
-            font-weight: 800;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            text-shadow: 0 0 8px rgba(239, 68, 68, 0.6);
-        }
-        .warning-text {
-            color: #fecaca;
-            font-size: 13px;
-            line-height: 1.6;
-            font-weight: 600;
-            margin-bottom: 18px;
-        }
-        .accept-btn {
-            width: 100%;
-            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-            color: #ffffff;
-            border: 1px solid #fca5a5;
-            padding: 12px;
-            border-radius: 12px;
-            font-size: 14px;
-            font-weight: 800;
-            cursor: pointer;
-            box-shadow: 0 0 15px rgba(239, 68, 68, 0.5);
-            transition: all 0.2s ease;
-        }
-        .accept-btn:disabled {
-            background: #475569;
-            border-color: #64748b;
-            color: #94a3b8;
-            cursor: not-allowed;
-            box-shadow: none;
-        }
-
-        .loading, .error-msg {
-            padding: 20px;
-            color: #94a3b8;
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
             font-size: 14px;
         }
-        .error-msg {
-            color: #f87171;
-        }
-        
-        .field-group {
-            margin-bottom: 12px;
-            text-align: start;
-        }
-        .field-label {
-            font-size: 12px;
-            font-weight: 600;
-            color: #94a3b8;
-            margin-bottom: 6px;
-            display: block;
-        }
 
-        .input-with-copy {
-            display: flex;
-            align-items: center;
-            background: rgba(3, 7, 18, 0.8);
-            border: 1px solid #1e40af;
-            box-shadow: 0 0 8px rgba(30, 64, 175, 0.2);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        .field-input {
-            flex: 1;
-            background: transparent;
-            border: none;
-            padding: 10px 12px;
-            font-size: 13px;
-            color: #e2e8f0;
-            outline: none;
+        input[type="text"] {
             width: 100%;
-            font-family: 'Poppins', 'Noto Kufi Arabic', sans-serif;
-            text-align: start;
-        }
-        .copy-btn {
-            background: rgba(30, 41, 59, 0.8);
-            border: none;
-            padding: 0 14px;
-            cursor: pointer;
-            color: #60a5fa;
-            font-size: 12px;
-            font-weight: 700;
-            transition: background 0.2s, color 0.2s;
-            display: flex;
-            align-items: center;
-            min-height: 40px;
-        }
-        html[dir="rtl"] .copy-btn {
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        html[dir="ltr"] .copy-btn {
-            border-left: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .copy-btn:hover {
-            background: #2563eb;
-            color: #ffffff;
-            box-shadow: 0 0 10px #2563eb;
-        }
-        
-        .action-fetch-box {
-            margin: 16px 0;
-            background: rgba(3, 7, 18, 0.95);
-            border: 1.5px solid #ef4444;
-            box-shadow: 0 0 12px rgba(239, 68, 68, 0.25);
-            border-radius: 14px;
-            padding: 14px;
-            text-align: start;
-        }
-        .action-fetch-box .field-label {
-            color: #60a5fa;
-            font-weight: 700;
-            margin-bottom: 6px;
-        }
-        .fetch-btn {
-            display: block;
-            width: 100%;
-            background: linear-gradient(135deg, #1d4ed8 0%, #dc2626 100%);
-            color: #ffffff;
-            border: 1px solid #60a5fa;
-            cursor: pointer;
-            padding: 10px;
+            padding: 12px 15px;
             border-radius: 8px;
-            font-size: 12px;
-            font-weight: 700;
-            box-shadow: 0 0 10px rgba(37, 99, 235, 0.4);
-            transition: all 0.2s ease;
-            margin-top: 8px;
-        }
-
-        .code-display-box {
-            background: #020617;
-            border: 1.5px solid #38bdf8;
-            box-shadow: 0 0 10px rgba(56, 189, 248, 0.3), inset 0 0 6px rgba(56, 189, 248, 0.15);
-            border-radius: 10px;
-            padding: 4px 8px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .code-input-field {
-            background: transparent;
-            border: none;
-            color: #38bdf8;
-            font-size: 18px;
-            font-weight: 800;
-            text-align: center;
-            width: 100%;
+            border: 1px solid var(--border-color);
+            background-color: #0d1322;
+            color: #fff;
+            font-size: 15px;
             outline: none;
-            letter-spacing: 3px;
-            font-family: 'Poppins', sans-serif;
-        }
-        .timer-text {
-            font-size: 11px;
-            color: #ef4444;
-            text-align: center;
-            margin-top: 6px;
-            font-weight: 700;
-            min-height: 16px;
-        }
-
-        .show-modal-btn {
-            width: 100%;
-            background: rgba(30, 41, 59, 0.8);
-            border: 1.5px solid #3b82f6;
-            color: #38bdf8;
-            padding: 12px;
-            border-radius: 12px;
-            font-size: 13px;
-            font-weight: 700;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 15px;
             transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
-        }
-        .show-modal-btn:hover {
-            background: #1e3a8a;
-            color: #ffffff;
-            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
         }
 
+        input[type="text"]:focus {
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 10px var(--neon-glow);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue));
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            box-shadow: 0 4px 15px var(--neon-glow);
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .btn-show {
+            background: linear-gradient(135deg, #10b981, #059669);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+            display: none;
+            margin-top: 15px;
+        }
+
+        /* Modal Styles */
         .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(3, 7, 18, 0.85);
-            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 999;
             opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-            padding: 20px;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
         }
+
         .modal-overlay.active {
             opacity: 1;
-            pointer-events: auto;
+            visibility: visible;
         }
-        .modal-card {
-            background: rgba(15, 23, 42, 0.98);
-            border: 2px solid #38bdf8;
-            box-shadow: 0 0 25px rgba(56, 189, 248, 0.4);
-            border-radius: 20px;
-            width: 100%;
-            max-width: 380px;
+
+        .modal-content {
+            background-color: var(--card-bg);
+            border: 1px solid var(--primary-blue);
+            border-radius: 12px;
             padding: 20px;
-            text-align: start;
-            transform: scale(0.9);
-            transition: transform 0.3s ease;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 0 25px var(--neon-glow);
+            position: relative;
         }
-        .modal-overlay.active .modal-card {
-            transform: scale(1);
-        }
+
         .modal-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 15px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 8px;
-        }
-        .modal-title {
-            color: #38bdf8;
-            font-size: 14px;
-            font-weight: 800;
-        }
-        .close-modal-btn {
-            background: rgba(239, 68, 68, 0.2);
-            border: 1px solid #ef4444;
-            color: #fca5a5;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
         }
 
-        .toast {
-            position: fixed;
-            bottom: 25px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: #10b981;
-            color: white;
-            padding: 10px 24px;
-            border-radius: 30px;
-            font-size: 13px;
-            font-weight: 700;
-            box-shadow: 0 0 20px rgba(16, 185, 129, 0.6);
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            z-index: 1000;
+        .close-btn {
+            background: none;
+            border: none;
+            color: var(--danger-red);
+            font-size: 20px;
+            cursor: pointer;
         }
-        .toast.show {
-            transform: translateX(-50%) translateY(0);
+
+        .field-group {
+            margin-bottom: 15px;
+        }
+
+        .input-with-copy {
+            display: flex;
+            gap: 8px;
+        }
+
+        .field-input {
+            flex: 1;
+        }
+
+        .copy-btn {
+            padding: 0 15px;
+            background-color: #1e293b;
+            border: 1px solid var(--border-color);
+            color: var(--primary-blue);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .copy-btn:hover {
+            background-color: var(--primary-blue);
+            color: #000;
+        }
+
+        #loader {
+            display: none;
+            text-align: center;
+            margin-top: 15px;
+            color: var(--primary-blue);
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- بەشی سەرەوە: هەڵبژاردنی زمان + واتساپ -->
-        <div class="top-bar">
-            <div class="lang-selector">
-                <button class="lang-btn active" onclick="setLanguage('ku', event)">کوردی</button>
-                <button class="lang-btn" onclick="setLanguage('ar', event)">عربي</button>
-                <button class="lang-btn" onclick="setLanguage('en', event)">English</button>
-            </div>
-
-            <a id="whatsappLink" href="#" target="_blank" class="whatsapp-banner" title="WhatsApp">
-                <svg viewBox="0 0 24 24">
-                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-                </svg>
-            </a>
+        <h2>پشکنینی هەژمار</h2>
+        
+        <div class="form-group">
+            <label for="accountNumber">ژمارەی هەژمار (Account ID):</label>
+            <input type="text" id="accountNumber" placeholder="ژمارەی هەژمار بنووسە...">
         </div>
 
-        <!-- بەشی وێنەی لۆگۆ (SVG Vector) -->
-        <div class="logo-container">
-            <div class="db-logo">
-                <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="circleBorder" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#00c6ff" />
-                            <stop offset="45%" stop-color="#0072ff" />
-                            <stop offset="70%" stop-color="#9d1bb2" />
-                            <stop offset="100%" stop-color="#ff2a5f" />
-                        </linearGradient>
+        <button class="btn" onclick="fetchData()">گەڕان 🔍</button>
 
-                        <linearGradient id="blueGlow" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#00d2ff" />
-                            <stop offset="100%" stop-color="#0066fe" />
-                        </linearGradient>
+        <div id="loader">چاوەڕێ بکە... ⏳</div>
 
-                        <linearGradient id="textBrandGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stop-color="#ffffff" />
-                            <stop offset="68%" stop-color="#ffffff" />
-                            <stop offset="70%" stop-color="#ff2a5f" />
-                            <stop offset="100%" stop-color="#ff2a5f" />
-                        </linearGradient>
-
-                        <linearGradient id="num16Grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#00c6ff" />
-                            <stop offset="50%" stop-color="#3a7bd5" />
-                            <stop offset="100%" stop-color="#ff2a85" />
-                        </linearGradient>
-
-                        <filter id="glowBlue" x="-20%" y="-20%" width="140%" height="140%">
-                            <feGaussianBlur stdDeviation="3" result="blur" />
-                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                        </filter>
-                    </defs>
-
-                    <circle cx="200" cy="200" r="190" fill="#04060a" stroke="url(#circleBorder)" stroke-width="5" />
-
-                    <g stroke="#00a8ff" stroke-width="2.2" stroke-linecap="round" fill="none" opacity="0.9">
-                        <path d="M 95 130 L 130 130 L 150 148" />
-                        <circle cx="95" cy="130" r="4" fill="#04060a" stroke="#00a8ff" stroke-width="2"/>
-                        <path d="M 80 155 L 120 155 L 140 170" />
-                        <circle cx="80" cy="155" r="4" fill="#04060a" stroke="#00a8ff" stroke-width="2"/>
-                        <path d="M 70 185 L 140 185" />
-                        <circle cx="70" cy="185" r="4" fill="#04060a" stroke="#00a8ff" stroke-width="2"/>
-                        <path d="M 90 215 L 125 215 L 142 200" stroke-dasharray="none" />
-                        <circle cx="90" cy="215" r="4" fill="#04060a" stroke="#00a8ff" stroke-width="2"/>
-                        <path d="M 110 240 L 135 240 L 148 220" />
-                        <circle cx="110" cy="240" r="4" fill="#04060a" stroke="#00a8ff" stroke-width="2"/>
-                    </g>
-
-                    <g transform="translate(10, 5)">
-                        <path d="M 148 105 L 178 105 L 178 160 L 210 138 L 210 105 L 240 105 L 240 160 L 178 205 L 148 205 Z" fill="#ffffff"/>
-                        <path d="M 210 138 L 240 118 L 240 212 L 210 212 Z" fill="url(#blueGlow)"/>
-                        <path d="M 252 185 L 264 185 L 264 212 L 252 212 Z M 268 185 L 298 185 L 298 193 L 286 193 L 286 212 L 279 212 L 279 193 L 268 193 Z" fill="url(#blueGlow)"/>
-                        <path d="M 125 210 C 160 170, 260 130, 298 155 C 275 168, 195 188, 125 210 Z" fill="url(#blueGlow)" filter="url(#glowBlue)"/>
-                    </g>
-
-                    <text x="200" y="248" text-anchor="middle" class="text-brand" fill="url(#textBrandGrad)">
-                        Mamosta<tspan fill="#ff2a5f">HemnIT</tspan>
-                    </text>
-
-                    <g opacity="0.9">
-                        <line x1="90" y1="258" x2="168" y2="258" stroke="#00a8ff" stroke-width="2.5" />
-                        <circle cx="86" cy="258" r="3.5" fill="#00a8ff" />
-                        <text x="200" y="262" text-anchor="middle" class="text-it-sub">IT</text>
-                        <line x1="232" y1="258" x2="310" y2="258" stroke="#00a8ff" stroke-width="2.5" />
-                        <circle cx="314" cy="258" r="3.5" fill="#00a8ff" />
-                    </g>
-
-                    <g transform="translate(0, 10)">
-                        <g stroke="#00a8ff" stroke-width="2" fill="#00a8ff">
-                            <path d="M 112 285 C 102 295, 102 315, 122 328" fill="none" />
-                            <path d="M 106 288 C 98 284, 96 292, 105 295 Z" />
-                            <path d="M 100 300 C 91 298, 91 306, 100 308 Z" />
-                            <path d="M 103 313 C 95 315, 98 323, 106 320 Z" />
-                            <path d="M 112 324 C 107 329, 114 333, 118 327 Z" />
-                        </g>
-
-                        <g stroke="#00a8ff" stroke-width="2" fill="#00a8ff">
-                            <path d="M 288 285 C 298 295, 298 315, 278 328" fill="none" />
-                            <path d="M 294 288 C 302 284, 304 292, 295 295 Z" />
-                            <path d="M 300 300 C 309 298, 309 306, 300 308 Z" />
-                            <path d="M 297 313 C 305 315, 302 323, 294 320 Z" />
-                            <path d="M 288 324 C 293 329, 286 333, 282 327 Z" />
-                        </g>
-
-                        <text x="170" y="312" text-anchor="middle" class="text-num" fill="url(#num16Grad)">16</text>
-                        <text x="235" y="307" text-anchor="middle" class="text-sal">ساڵ</text>
-
-                        <g transform="translate(142, 320)">
-                            <polygon points="0,5 10,0 106,0 116,5 116,23 106,28 10,28 0,23" fill="#04060a" stroke="#00a8ff" stroke-width="1.8" />
-                            <text x="58" y="19" text-anchor="middle" class="text-exp">ئەزموونم</text>
-                        </g>
-                    </g>
-                </svg>
-            </div>
-            
-            <div class="account-badge">
-                <span id="lblAccount">ئەکاونت:</span>
-                <input type="text" id="accSmallInput" value="" readonly>
-            </div>
-        </div>
-
-        <!-- باکسی ئاگاداری -->
-        <div id="warningBox" class="warning-box">
-            <div class="warning-title" id="lblWarningTitle">
-                ⚠️ ئاگادارییەکی گرنگ
-            </div>
-            <div class="warning-text" id="lblWarningText">
-                تکایە بەهیچ شێوەیەک ئەم Apple ID لە Settings ی موبایلەکەت داخل مەکە! تەنها لە App Store داخل بکە.<br><br>
-                <strong>تکایە کاتێک Apple ID داخل کرد ڕاستەوخۆ بیخەرە سەر ژمارەی موبایلی خۆت.</strong>
-            </div>
-            <button id="acceptBtn" class="accept-btn" disabled onclick="acceptAgreement()">
-                چاوەڕوان بە (8)...
-            </button>
-        </div>
-
-        <div id="content" style="display: none;">
-            <div class="loading" id="lblLoading">چاوەڕوان بە، زانیارییەکان دەهێنرێن...</div>
-        </div>
+        <!-- دوگمەی نیشاندانی زانیارییە شاراوەکان -->
+        <button id="showModalBtn" class="btn btn-show" onclick="toggleModal(true)">
+            👁️ پێشان دانی زانیارییە شاراوەکان (روز / ژمارە)
+        </button>
     </div>
 
     <!-- مۆداڵی زانیارییە شاراوەکان -->
     <div id="infoModal" class="modal-overlay">
-        <div class="modal-card">
+        <div class="modal-content">
             <div class="modal-header">
-                <div class="modal-title" id="lblModalTitle">🔐 زانیارییە شاراوەکان</div>
-                <button class="close-modal-btn" onclick="toggleModal(false)">✕</button>
+                <h3 id="modalTitle">🔐 زانیارییە شاراوەکان</h3>
+                <button class="close-btn" onclick="toggleModal(false)">&times;</button>
             </div>
-            
+
+            <!-- ڕۆژی لەدایکبوون -->
             <div class="field-group">
                 <label class="field-label" id="lblBday">ڕۆژی لەدایکبوون (Birthday)</label>
                 <div class="input-with-copy">
@@ -644,6 +231,7 @@
                 </div>
             </div>
 
+            <!-- ژمارەی تەلەفۆن -->
             <div class="field-group">
                 <label class="field-label" id="lblPhone">ژمارەی تەلەفۆن (Phone)</label>
                 <div class="input-with-copy">
@@ -654,327 +242,64 @@
         </div>
     </div>
 
-    <div id="toast" class="toast">بە سەرکەوتوویی کۆپی کرا!</div>
-
     <script>
-        const translations = {
-            ku: {
-                dir: 'rtl',
-                account: 'ئەکاونت:',
-                warningTitle: '⚠️ ئاگادارییەکی گرنگ',
-                warningText: 'تکایە بەهیچ شێوەیەک ئەم Apple ID لە Settings ی موبایلەکەت داخل مەکە! تەنها لە App Store داخل بکە.<br><br><strong>تکایە کاتێک Apple ID داخل کرد ڕاستەوخۆ بیخەرە سەر ژمارەی موبایلی خۆت.</strong>',
-                waitBtn: 'چاوەڕوان بە ({s})...',
-                acceptBtn: 'من ڕازیم',
-                loading: 'چاوەڕوان بە، زانیارییەکان دەهێنرێن...',
-                noAccountErr: 'تکایە ژمارەی ئەکاونت لە لینکەکەدا دیاری بکە (نموونە: ?account=1)',
-                emailLbl: 'ئیمەیل (Email)',
-                passLbl: 'پاسوۆرد (Password)',
-                codeSectionLbl: 'کۆدی دڵنیایی',
-                fetchCodeBtn: 'وەرگرتنی کۆدی دڵنیایی',
-                showModalBtn: '👁️ پێشان دانی زانیارییە شاراوەکان (روز / ژمارە)',
-                modalTitle: '🔐 زانیارییە شاراوەکان',
-                bdayLbl: 'ڕۆژی لەدایکبوون (Birthday)',
-                phoneLbl: 'ژمارەی تەلەفۆن (Phone)',
-                copyBtn: 'کۆپی',
-                toast: 'بە سەرکەوتوویی کۆپی کرا!',
-                timerText: 'کۆدەکە دوای {s} چرکەی تر دەسڕێتەوە',
-                timerExpired: 'کۆدەکە سڕایەوە! کۆتایی هات.',
-                noLink: 'لینک نییە',
-                notFound: 'نەدۆزرایەوە',
-                error: 'هەڵە'
-            },
-            ar: {
-                dir: 'rtl',
-                account: 'الحساب:',
-                warningTitle: '⚠️ تنبيه هام جداً',
-                warningText: 'يرجى عدم إدخال هذا الـ Apple ID في إعدادات الهاتف (Settings) مطلقاً! أدخله فقط في App Store.<br><br><strong>يرجى تغيير رقم الهاتف إلى رقمك الخاص فور تسجيل الدخول.</strong>',
-                waitBtn: 'انتظر ({s})...',
-                acceptBtn: 'أنا أوافق',
-                loading: 'جاري تحميل البيانات، يرجى الانتظار...',
-                noAccountErr: 'يرجى تحديد رقم الحساب في الرابط (مثال: ?account=1)',
-                emailLbl: 'البريد الإلكتروني (Email)',
-                passLbl: 'كلمة السر (Password)',
-                codeSectionLbl: 'رمز التحقق (Verification Code)',
-                fetchCodeBtn: 'جلب رمز التحقق',
-                showModalBtn: '👁️ عرض البيانات الخفية (الميلاد / الهاتف)',
-                modalTitle: '🔐 البيانات الخفية',
-                bdayLbl: 'تاريخ الميلاد (Birthday)',
-                phoneLbl: 'رقم الهاتف (Phone)',
-                copyBtn: 'نسخ',
-                toast: 'تم النسخ بنجاح!',
-                timerText: 'سيتم مسح الرمز بعد {s} ثانية',
-                timerExpired: 'انتهت الصلاحية! تم مسح الرمز.',
-                noLink: 'لا يوجد رابط',
-                notFound: 'غير موجود',
-                error: 'خطأ'
-            },
-            en: {
-                dir: 'ltr',
-                account: 'Account:',
-                warningTitle: '⚠️ Important Notice',
-                warningText: 'DO NOT enter this Apple ID into your Phone Settings! Only sign in through the App Store.<br><br><strong>Please immediately change the trusted phone number to your own after signing in.</strong>',
-                waitBtn: 'Please wait ({s})...',
-                acceptBtn: 'I Agree',
-                loading: 'Loading data, please wait...',
-                noAccountErr: 'Please specify an account number in the URL (e.g. ?account=1)',
-                emailLbl: 'Email Address',
-                passLbl: 'Password',
-                codeSectionLbl: 'Verification Code',
-                fetchCodeBtn: 'Get Verification Code',
-                showModalBtn: '👁️ Show Hidden Info (Birthday / Phone)',
-                modalTitle: '🔐 Hidden Information',
-                bdayLbl: 'Date of Birth (Birthday)',
-                phoneLbl: 'Phone Number',
-                copyBtn: 'Copy',
-                toast: 'Copied successfully!',
-                timerText: 'Code will expire in {s} seconds',
-                timerExpired: 'Code expired and cleared!',
-                noLink: 'No Link',
-                notFound: 'Not Found',
-                error: 'Error'
-            }
-        };
-
-        let currentLang = 'ku';
-        let waitTime = 8;
-        let waitTimer = null;
-        let countdownTimer = null;
+        // لێرەدا لینکە سەرەکیەکەی Google Apps Script دابنێ
+        const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
         let fetchedData = null;
 
-        const urlParams = new URLSearchParams(window.location.search);
-        const accountNumber = urlParams.get('account');
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbzBjknvZmIG5LaQk4DsQX_1jsMWTcE8lqTTxqVmIOZsWyq1C-zYOa7WUosOTeqInpKi/exec';
-
-        // ئەگەر ژمارەی ئەکاونت هەبوو، لە جێبەجێبوونی پەڕەکەدا ڕاستەوخۆ دەست بە خوێندنەوە دەکات
-        if (accountNumber) {
-            document.getElementById('accSmallInput').value = accountNumber;
-            const phone = "9647503728148";
-            const message = encodeURIComponent(`سڵاو، من ئەکاونتی ژمارە ${accountNumber}م هەیە.`);
-            document.getElementById('whatsappLink').href = `https://wa.me/${phone}?text=${message}`;
-
-            fetch(`${scriptURL}?account=${accountNumber}`)
-                .then(response => response.json())
-                .then(res => { 
-                    fetchedData = res; 
-                    // بڕینی بەهاکانی C (Birthday) و D (Phone) بۆ ناو Input
-                    if (fetchedData && fetchedData.status === 'success' && fetchedData.data) {
-                        document.getElementById('bdayInput').value = fetchedData.data.birthday || '';
-                        document.getElementById('phoneInput').value = fetchedData.data.phone || '';
-                    }
-                })
-                .catch(err => { 
-                    fetchedData = { status: 'error', message: 'Error fetching data.' }; 
-                });
-        }
-
-        function setLanguage(lang, e) {
-            currentLang = lang;
-            const t = translations[lang];
-
-            document.documentElement.setAttribute('dir', t.dir);
-            document.documentElement.setAttribute('lang', lang);
-
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            if(e && e.target) e.target.classList.add('active');
-
-            document.getElementById('lblAccount').innerText = t.account;
-            document.getElementById('lblWarningTitle').innerHTML = t.warningTitle;
-            document.getElementById('lblWarningText').innerHTML = t.warningText;
-            document.getElementById('lblLoading').innerText = t.loading;
-            document.getElementById('lblModalTitle').innerText = t.modalTitle;
-            document.getElementById('lblBday').innerText = t.bdayLbl;
-            document.getElementById('lblPhone').innerText = t.phoneLbl;
-            document.getElementById('toast').innerText = t.toast;
-
-            document.querySelectorAll('.btn-copy-text').forEach(btn => btn.innerText = t.copyBtn);
-
-            if (document.getElementById('acceptBtn').disabled) {
-                document.getElementById('acceptBtn').innerText = t.waitBtn.replace('{s}', waitTime);
-            } else {
-                document.getElementById('acceptBtn').innerText = t.acceptBtn;
-            }
-
-            if (fetchedData && document.getElementById('content').style.display !== 'none') {
-                renderData(fetchedData);
-            }
-        }
-
-        waitTimer = setInterval(() => {
-            waitTime--;
-            const t = translations[currentLang];
-            const acceptBtn = document.getElementById('acceptBtn');
-            if (waitTime > 0) {
-                acceptBtn.innerText = t.waitBtn.replace('{s}', waitTime);
-            } else {
-                clearInterval(waitTimer);
-                acceptBtn.innerText = t.acceptBtn;
-                acceptBtn.disabled = false;
-            }
-        }, 1000);
-
-        function acceptAgreement() {
-            document.getElementById('warningBox').style.display = 'none';
-            document.getElementById('content').style.display = 'block';
+        function fetchData() {
+            const accountNumber = document.getElementById('accountNumber').value.trim();
+            const loader = document.getElementById('loader');
+            const showModalBtn = document.getElementById('showModalBtn');
 
             if (!accountNumber) {
-                document.getElementById('content').innerHTML = `<div class="error-msg">${translations[currentLang].noAccountErr}</div>`;
+                alert('تکایە ژمارەی هەژمار بنووسە!');
                 return;
             }
 
-            if (fetchedData) {
-                renderData(fetchedData);
-            } else {
-                const checkInterval = setInterval(() => {
-                    if (fetchedData) {
-                        clearInterval(checkInterval);
-                        renderData(fetchedData);
-                    }
-                }, 200);
-            }
-        }
+            loader.style.display = 'block';
+            showModalBtn.style.display = 'none';
 
-        function renderData(res) {
-            const t = translations[currentLang];
-            if (res.status === 'success') {
-                let d = res.data;
-                
-                // جێگیرکردنی زانیاری ڕۆژی لەدایکبوون (C) و ژمارەی موبایل (D)
-                document.getElementById('bdayInput').value = d.birthday || '';
-                document.getElementById('phoneInput').value = d.phone || '';
+            fetch(`${scriptURL}?account=${accountNumber}`)
+                .then(response => response.json())
+                .then(res => {
+                    loader.style.display = 'none';
+                    fetchedData = res;
 
-                document.getElementById('content').innerHTML = `
-                    <div class="field-group">
-                        <label class="field-label">${t.emailLbl}</label>
-                        <div class="input-with-copy">
-                            <input type="text" id="emailInput" class="field-input" value="${d.email || ''}" readonly>
-                            <button class="copy-btn btn-copy-text" onclick="copyText('emailInput')">${t.copyBtn}</button>
-                        </div>
-                    </div>
-
-                    <div class="field-group">
-                        <label class="field-label">${t.passLbl}</label>
-                        <div class="input-with-copy">
-                            <input type="text" id="passInput" class="field-input" value="${d.password || ''}" readonly>
-                            <button class="copy-btn btn-copy-text" onclick="copyText('passInput')">${t.copyBtn}</button>
-                        </div>
-                    </div>
-
-                    <div class="action-fetch-box">
-                        <label class="field-label">${t.codeSectionLbl}</label>
+                    if (fetchedData && fetchedData.status === 'success' && fetchedData.data) {
+                        // تێکردنی زانیارییەکان بۆ ناو خشتە شاراوەکان
+                        document.getElementById('bdayInput').value = fetchedData.data.birthday || 'نەدۆزرایەوە';
+                        document.getElementById('phoneInput').value = fetchedData.data.phone || 'نەدۆزرایەوە';
                         
-                        <div class="code-display-box">
-                            <input type="text" id="fetchedResultInput" class="code-input-field" value="" placeholder="------" readonly>
-                            <button class="copy-btn btn-copy-text" style="border-radius: 6px; min-height: 28px; padding: 0 10px; font-size: 11px;" onclick="copyText('fetchedResultInput')">${t.copyBtn}</button>
-                        </div>
-                        <div id="timerNotice" class="timer-text"></div>
-
-                        <button class="fetch-btn" onclick="fetchTargetLink('${d.link || ''}')">${t.fetchCodeBtn}</button>
-                    </div>
-
-                    <button class="show-modal-btn" onclick="toggleModal(true)">
-                        <span>${t.showModalBtn}</span>
-                    </button>
-                `;
-            } else {
-                document.getElementById('content').innerHTML = `<div class="error-msg">${res.message}</div>`;
-            }
+                        // نیشاندانی دوگمەی نیشاندانی مۆداڵ
+                        showModalBtn.style.display = 'block';
+                    } else {
+                        alert('هیچ زانیارییەک بۆ ئەم ژمارەیە نەدۆزرایەوە!');
+                    }
+                })
+                .catch(error => {
+                    loader.style.display = 'none';
+                    console.error('Error:', error);
+                    alert('هەڵەیەک ڕوویدا لە کاتی هێنانی زانیارییەکان!');
+                });
         }
 
         function toggleModal(show) {
             const modal = document.getElementById('infoModal');
             if (show) {
-                // هێنانەوە و پڕکردنەوەی زانیارییەکانی مۆداڵ
-                if (fetchedData && fetchedData.data) {
-                    document.getElementById('bdayInput').value = fetchedData.data.birthday || '';
-                    document.getElementById('phoneInput').value = fetchedData.data.phone || '';
-                }
                 modal.classList.add('active');
             } else {
                 modal.classList.remove('active');
             }
         }
 
-        function playBeepSound() {
-            try {
-                const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-                const oscillator = audioCtx.createOscillator();
-                const gainNode = audioCtx.createGain();
-
-                oscillator.type = 'sine';
-                oscillator.frequency.setValueAtTime(800, audioCtx.currentTime);
-                gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
-
-                oscillator.connect(gainNode);
-                gainNode.connect(audioCtx.destination);
-
-                oscillator.start();
-                oscillator.stop(audioCtx.currentTime + 0.15);
-            } catch (e) {
-                console.log("Audio Error");
-            }
-        }
-
-        function fetchTargetLink(linkUrl) {
-            const t = translations[currentLang];
-            const resultInput = document.getElementById('fetchedResultInput');
-            const timerNotice = document.getElementById('timerNotice');
-            
-            clearInterval(countdownTimer);
-            timerNotice.innerText = "";
-            playBeepSound();
-
-            if (!linkUrl || linkUrl === '#') {
-                resultInput.value = t.noLink;
-                return;
-            }
-
-            resultInput.value = '...';
-
-            fetch(linkUrl)
-                .then(response => response.text())
-                .then(data => {
-                    const numbersOnly = data.replace(/[^0-9]/g, '');
-                    
-                    if (numbersOnly) {
-                        resultInput.value = numbersOnly;
-                        playBeepSound();
-
-                        let timeLeft = 25;
-                        timerNotice.innerText = t.timerText.replace('{s}', timeLeft);
-
-                        countdownTimer = setInterval(() => {
-                            timeLeft--;
-                            if (timeLeft > 0) {
-                                timerNotice.innerText = t.timerText.replace('{s}', timeLeft);
-                            } else {
-                                clearInterval(countdownTimer);
-                                resultInput.value = "";
-                                timerNotice.innerText = t.timerExpired;
-                            }
-                        }, 1000);
-
-                    } else {
-                        resultInput.value = t.notFound;
-                    }
-                })
-                .catch(error => {
-                    resultInput.value = t.error;
+        function copyText(inputId) {
+            const input = document.getElementById(inputId);
+            if (input.value && input.value !== 'نەدۆزرایەوە') {
+                navigator.clipboard.writeText(input.value).then(() => {
+                    alert('کۆپی کرا!');
                 });
-        }
-
-        function copyText(elementId) {
-            const inputElement = document.getElementById(elementId);
-            if(!inputElement || !inputElement.value) return;
-
-            inputElement.select();
-            inputElement.setSelectionRange(0, 99999);
-            navigator.clipboard.writeText(inputElement.value);
-
-            const toast = document.getElementById('toast');
-            toast.classList.add('show');
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 2000);
+            }
         }
     </script>
 </body>
