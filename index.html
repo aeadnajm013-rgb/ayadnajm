@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABO PHONE - Bulk Control Panel</title>
+    <title>ABO PHONE - Control Panel</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Noto Kufi Arabic', sans-serif; }
         body { background: #030712; color: #fff; display: flex; justify-content: center; padding: 20px; }
-        .card { background: #0f0f12; border: 2px solid #eab308; width: 100%; max-width: 550px; border-radius: 20px; padding: 25px; box-shadow: 0 0 20px rgba(234, 179, 8, 0.2); }
+        .card { background: #0f0f12; border: 2px solid #eab308; width: 100%; max-width: 580px; border-radius: 20px; padding: 25px; box-shadow: 0 0 20px rgba(234, 179, 8, 0.2); }
         .title { text-align: center; color: #eab308; margin-bottom: 20px; font-size: 20px; font-weight: bold; }
         .field { margin-bottom: 15px; }
         label { display: block; font-size: 12px; color: #94a3b8; margin-bottom: 5px; }
         input, textarea { width: 100%; padding: 10px; background: #030712; border: 1px solid #ca8a04; color: #fde047; border-radius: 8px; outline: none; }
-        textarea { height: 120px; resize: vertical; font-size: 13px; line-height: 1.5; }
+        textarea { height: 130px; resize: vertical; font-size: 13px; line-height: 1.5; }
         .sheet-box { background: rgba(234, 179, 8, 0.1); border: 1px dashed #eab308; padding: 10px; border-radius: 10px; margin-bottom: 15px; }
         .hint { font-size: 11px; color: #a1a1aa; margin-top: 4px; }
         .btn-group { display: flex; gap: 10px; margin-top: 20px; }
@@ -28,7 +28,7 @@
 <body>
 
 <div class="card">
-    <div class="title">بەڕێوەبردنی بە کۆمەڵی ئەکاونتەکان</div>
+    <div class="title">بەڕێوەبردنی زانیارییەکانی شیت</div>
     
     <!-- لینکی شیت -->
     <div class="field sheet-box">
@@ -36,29 +36,29 @@
         <input type="text" id="sheetUrlInput" placeholder="https://docs.google.com/spreadsheets/d/...">
     </div>
 
-    <!-- بەشی سڕینەوەی بە کۆمەڵ -->
+    <!-- پاککردنەوەی بە کۆمەڵ -->
     <div class="field">
-        <label>🗑️ سڕینەوەی بە کۆمەڵ (تەنها ژمارەی ئەکاونتەکان بنووسە):</label>
+        <label>🗑️ پاککردنەوەی بە کۆمەڵ (ژمارەی ئەکاونتەکان لە F بنووسە):</label>
         <input type="text" id="deleteAccsInput" placeholder="نموونە: 1 3 55 66 343 6566">
-        <div class="hint">* تەنها خانەکانی (A تا E) پاکدەبنەوە، ژمارەی ئەکاونتەکە (F) وەک خۆی دەمێنێتەوە.</div>
+        <div class="hint">* تەنها خانەکانی (A تا E) پاکدەبنەوە، خانەی F وەک خۆی دەمێنێتەوە.</div>
     </div>
 
     <hr style="border: 0.5px solid #27272a; margin: 20px 0;">
 
-    <!-- بەشی زیادرکردن / نوێکردنەوەی بە کۆمەڵ -->
+    <!-- تێکردنی زانیاری نوێ لە شوێنی بەتاڵەکان -->
     <div class="field">
-        <label>➕ زیادرکردن / نوێکردنەوەی بە کۆمەڵ (هەر ئەکاونتێک لە دێڕێک):</label>
-        <textarea id="bulkDataInput" placeholder="شێوازی نووسین (بە هێڵی | جیاکراوەتەوە):
-ژمارەی_ئەکاونت | ئیمەیل | پاسوۆرد | ژمارەی_مۆبایل | بەروار | لینک
+        <label>➕ زیادرکردن بۆ ناو شوێنە بەتاڵەکان (هەر ئەکاونتێک لە دێڕێک):</label>
+        <textarea id="bulkDataInput" placeholder="شێوازی ڕیزبوون:
+ژمارەی_ئەکاونت(F) | ئیمەیل(A) | پاسوۆرد(B) | ڕۆژی_لەدایکبوون(C) | ژمارەی_مۆبایل(D) | لینک(E)
 
 نموونە:
-1 | user1@gmail.com | pass123 | 07501234567 | 2000-01-01 | link1
-2 | user2@gmail.com | pass456 | 07507654321 | 1998-05-12 | link2"></textarea>
+1 | user1@gmail.com | pass123 | 2000-01-01 | 07501234567 | link1
+2 | user2@gmail.com | pass456 | 1998-05-12 | 07507654321 | link2"></textarea>
     </div>
 
     <div class="btn-group">
-        <button class="btn-save" onclick="manageData('save')">تۆمارکردن / نوێکردنەوەی بە کۆمەڵ</button>
-        <button class="btn-delete" onclick="manageData('delete')">پاککردنەوەی بە کۆمەڵ</button>
+        <button class="btn-save" onclick="manageData('save')">تۆمارکردن لە شوێنی بەتاڵەکان</button>
+        <button class="btn-delete" onclick="manageData('delete')">پاککردنەوەی زانیاریکان</button>
     </div>
 
     <div id="statusMsg" class="status"></div>
@@ -82,27 +82,27 @@
             sheetUrl: sheetUrl
         };
 
-        // ۱. ئامادەکردنی داواکاری سڕینەوە
+        // پاککردنەوە
         if (actionType === 'delete') {
             const rawDeleteAccs = document.getElementById('deleteAccsInput').value.trim();
             if (!rawDeleteAccs) {
                 statusMsg.style.color = '#ef4444';
-                statusMsg.innerText = 'تکایە ژمارەی ئەکاونتەکان بنووسە بۆ سڕینەوە!';
+                statusMsg.innerText = 'تکایە ژمارەی ئەکاونت بنووسە بۆ پاککردنەوە!';
                 return;
             }
             const accList = rawDeleteAccs.split(/[\s,]+/).filter(item => item.length > 0);
             
-            if (!confirm(`دڵنیایت لە پاککردنەوەی زانیارییەکانی [${accList.length}] ئەکاونت؟ (ژمارەی ئەکاونت نەستڕایەوە)`)) return;
+            if (!confirm(`دڵنیایت لە پاککردنەوەی (A-E) بۆ [${accList.length}] ئەکاونت؟ (خانەی F ناسترێتەوە)`)) return;
 
             payload.accounts = accList;
         }
 
-        // ۲. ئامادەکردنی داواکاری تۆمارکردن / نوێکردنەوە
+        // تۆمارکردنی نوێ لە شوێنی بەتاڵ
         if (actionType === 'save') {
             const rawData = document.getElementById('bulkDataInput').value.trim();
             if (!rawData) {
                 statusMsg.style.color = '#ef4444';
-                statusMsg.innerText = 'تکایە زانیاری ئەکاونتەکان لە بەشی زیادرکردندا بنووسە!';
+                statusMsg.innerText = 'تکایە زانیاری ئەکاونتەکان دابنێ!';
                 return;
             }
 
@@ -113,19 +113,19 @@
                 const parts = line.split('|').map(p => p.trim());
                 if (parts.length >= 1 && parts[0] !== "") {
                     items.push({
-                        account: parts[0] || '',
-                        email: parts[1] || '',
-                        password: parts[2] || '',
-                        phone: parts[3] || '',
-                        birthday: parts[4] || '',
-                        link: parts[5] || ''
+                        account: parts[0] || '',  // F
+                        email: parts[1] || '',    // A
+                        password: parts[2] || '', // B
+                        birthday: parts[3] || '', // C
+                        phone: parts[4] || '',    // D
+                        link: parts[5] || ''      // E
                     });
                 }
             });
 
             if (items.length === 0) {
                 statusMsg.style.color = '#ef4444';
-                statusMsg.innerText = 'شێوازی زانیارییەکان ڕاست نیست!';
+                statusMsg.innerText = 'شێوازی زانیارییەکان تەواو نییە!';
                 return;
             }
 
@@ -133,7 +133,7 @@
         }
 
         statusMsg.style.color = '#eab308';
-        statusMsg.innerText = 'چاوەڕوان بە... داواکاری دەنێردرێت';
+        statusMsg.innerText = 'چاوەڕوان بە... داواکاری جێبەجێ دەکرێت';
 
         fetch(scriptURL, {
             method: 'POST',
@@ -144,10 +144,10 @@
         .then(() => {
             statusMsg.style.color = '#10b981';
             if (actionType === 'save') {
-                statusMsg.innerText = 'زانیاری ئەکاونتەکان بە سەرکەوتوویی نوێکرانەوە/جێگیرکران!';
+                statusMsg.innerText = 'زانیارییەکان بە سەرکەوتوویی خرانە شوێنی بەتاڵی ئەکاونتەکان!';
                 document.getElementById('bulkDataInput').value = '';
             } else {
-                statusMsg.innerText = 'داواکاری پاککردنەوە بە سەرکەوتوویی ئەنجام درا!';
+                statusMsg.innerText = 'زانیارییەکان (A-E) پاککرانەوە و خانەی F دەستی لێنەدرا!';
                 document.getElementById('deleteAccsInput').value = '';
             }
         })
