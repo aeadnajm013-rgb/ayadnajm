@@ -726,7 +726,7 @@
         let currentLang = 'ku';
         const urlParams = new URLSearchParams(window.location.search);
         const accountNumber = urlParams.get('account');
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxBs9hot2zu7R9Ndz3ggEaurcW1vkEgRqF1LDyjtowxBs2z4vZYrow_dv9Nnw5tFxWK/exec';
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbw54zN2YvGCvqerG_Ysy1eZtOkCKxffYPcUpkVctGf8fB6RTTjX-hKFtcaEvqC-IDHC/exec';
         let countdownTimer = null;
         let fetchedData = null;
         let waitTime = 5;
@@ -805,59 +805,59 @@
             if (fetchedData) {
                 renderData(fetchedData);
             } else {
+                document.getElementById('loadingText').innerText = t.loading;
                 const checkInterval = setInterval(() => {
                     if (fetchedData) {
                         clearInterval(checkInterval);
                         renderData(fetchedData);
                     }
-                }, 200);
+                }, 300);
             }
         }
 
-        function renderData(res) {
+        function renderData(data) {
+            const contentDiv = document.getElementById('content');
             const t = translations[currentLang];
-            if (res.status === 'success') {
-                let d = res.data;
-                
-                document.getElementById('bdayInput').value = d.birthday || '';
-                document.getElementById('phoneInput').value = d.phone || '';
 
-                document.getElementById('content').innerHTML = `
-                    <div class="field-group">
-                        <label class="field-label">${t.lblEmail}</label>
-                        <div class="input-with-copy">
-                            <input type="text" id="emailInput" class="field-input" value="${d.email || ''}" readonly>
-                            <button class="copy-btn" onclick="copyText('emailInput')">${t.btnCopy}</button>
-                        </div>
-                    </div>
-
-                    <div class="field-group">
-                        <label class="field-label">${t.lblPass}</label>
-                        <div class="input-with-copy">
-                            <input type="text" id="passInput" class="field-input" value="${d.password || ''}" readonly>
-                            <button class="copy-btn" onclick="copyText('passInput')">${t.btnCopy}</button>
-                        </div>
-                    </div>
-
-                    <div class="action-fetch-box">
-                        <label class="field-label">${t.lblCode}</label>
-                        
-                        <div class="code-display-box">
-                            <input type="text" id="fetchedResultInput" class="code-input-field" value="" placeholder="------" readonly>
-                            <button class="copy-btn" style="border-radius: 6px; min-height: 28px; padding: 0 10px; font-size: 11px;" onclick="copyText('fetchedResultInput')">${t.btnCopy}</button>
-                        </div>
-                        <div id="timerNotice" class="timer-text"></div>
-
-                        <button class="fetch-btn" onclick="fetchTargetLink('${d.link || ''}')">${t.btnGetCode}</button>
-                    </div>
-
-                    <button class="show-modal-btn" onclick="toggleModal(true)">
-                        ${t.btnShowHidden}
-                    </button>
-                `;
-            } else {
-                document.getElementById('content').innerHTML = `<div class="error-msg">${res.message}</div>`;
+            if (data.status === 'error') {
+                contentDiv.innerHTML = `<div class="error-msg">${data.message}</div>`;
+                return;
             }
+
+            document.getElementById('bdayInput').value = data.birthday || '';
+            document.getElementById('phoneInput').value = data.phone || '';
+
+            contentDiv.innerHTML = `
+                <div class="field-group">
+                    <label class="field-label">${t.lblEmail}</label>
+                    <div class="input-with-copy">
+                        <input type="text" id="emailInput" class="field-input" value="${data.email || ''}" readonly>
+                        <button class="copy-btn" onclick="copyText('emailInput')">${t.btnCopy}</button>
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label class="field-label">${t.lblPass}</label>
+                    <div class="input-with-copy">
+                        <input type="text" id="passInput" class="field-input" value="${data.password || ''}" readonly>
+                        <button class="copy-btn" onclick="copyText('passInput')">${t.btnCopy}</button>
+                    </div>
+                </div>
+
+                <div class="action-fetch-box">
+                    <label class="field-label">${t.lblCode}</label>
+                    <div class="code-display-box">
+                        <input type="text" id="codeInput" class="code-input-field" value="------" readonly>
+                        <button class="copy-btn" onclick="copyText('codeInput')">${t.btnCopy}</button>
+                    </div>
+                    <div id="timerText" class="timer-text"></div>
+                    <button id="btnFetchCode" class="fetch-btn" onclick="fetchVerificationCode('${data.codeUrl}')">${t.btnGetCode}</button>
+                </div>
+
+                <button class="show-modal-btn" onclick="toggleModal(true)">
+                    ${t.btnShowHidden}
+                </button>
+            `;
         }
 
         function toggleModal(show) {
@@ -869,95 +869,92 @@
             }
         }
 
-        function copyText(inputId) {
-            const inputEl = document.getElementById(inputId);
-            if (!inputEl || !inputEl.value) return;
-            
-            inputEl.select();
-            inputEl.setSelectionRange(0, 99999);
-            navigator.clipboard.writeText(inputEl.value).then(() => {
-                showToast();
-            });
-        }
-
-        function showToast() {
-            const toast = document.getElementById('toast');
-            toast.classList.add('show');
-            setTimeout(() => {
-                toast.classList.remove('show');
-            }, 2000);
-        }
-
-        function playBeepSound() {
-            try {
-                const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-                const oscillator = audioCtx.createOscillator();
-                const gainNode = audioCtx.createGain();
-
-                oscillator.type = 'sine';
-                oscillator.frequency.setValueAtTime(800, audioCtx.currentTime);
-                gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
-
-                oscillator.connect(gainNode);
-                gainNode.connect(audioCtx.destination);
-
-                oscillator.start();
-                oscillator.stop(audioCtx.currentTime + 0.15);
-            } catch (e) {
-                console.log("Audio Error");
-            }
-        }
-
-        function fetchTargetLink(linkUrl) {
-            const resultInput = document.getElementById('fetchedResultInput');
-            const timerNotice = document.getElementById('timerNotice');
+        function fetchVerificationCode(codeUrl) {
             const t = translations[currentLang];
-            
-            clearInterval(countdownTimer);
-            timerNotice.innerText = "";
-            playBeepSound();
+            const codeInput = document.getElementById('codeInput');
+            const timerText = document.getElementById('timerText');
+            const btnFetch = document.getElementById('btnFetchCode');
 
-            if (!linkUrl || linkUrl === '#') {
-                resultInput.value = t.codeNoLink;
+            if (!codeUrl) {
+                codeInput.value = t.codeNoLink;
                 return;
             }
 
-            resultInput.value = "...";
+            btnFetch.disabled = true;
+            codeInput.value = "...";
+            timerText.innerText = "";
 
-            fetch(linkUrl)
+            if (countdownTimer) clearInterval(countdownTimer);
+
+            fetch(codeUrl)
                 .then(res => res.text())
                 .then(text => {
-                    const match = text.match(/\b\d{6}\b/);
-                    if (match) {
-                        resultInput.value = match[0];
+                    btnFetch.disabled = false;
+                    
+                    let extractedCode = null;
+                    const regex6Digit = /\b\d{6}\b/;
+                    const match6 = text.match(regex6Digit);
+
+                    if (match6) {
+                        extractedCode = match6[0];
+                    } else {
+                        const regexAnyDigits = /\d+/g;
+                        const matches = text.match(regexAnyDigits);
+                        if (matches) {
+                            extractedCode = matches.join('');
+                        }
+                    }
+
+                    if (extractedCode) {
+                        codeInput.value = extractedCode;
                         startCodeTimer(60);
                     } else {
-                        resultInput.value = t.codeNotFound;
+                        codeInput.value = t.codeNotFound;
                     }
                 })
                 .catch(err => {
-                    resultInput.value = t.codeErr;
+                    btnFetch.disabled = false;
+                    codeInput.value = t.codeErr;
                 });
         }
 
         function startCodeTimer(seconds) {
             let timeLeft = seconds;
-            const timerNotice = document.getElementById('timerNotice');
-            const resultInput = document.getElementById('fetchedResultInput');
-            const t = translations[currentLang];
-
-            timerNotice.innerText = t.codeTimer.replace('{s}', timeLeft);
+            const codeInput = document.getElementById('codeInput');
+            const timerText = document.getElementById('timerText');
+            
+            updateTimerDisplay(timeLeft);
 
             countdownTimer = setInterval(() => {
                 timeLeft--;
                 if (timeLeft > 0) {
-                    timerNotice.innerText = t.codeTimer.replace('{s}', timeLeft);
+                    updateTimerDisplay(timeLeft);
                 } else {
                     clearInterval(countdownTimer);
-                    resultInput.value = "";
-                    timerNotice.innerText = t.codeExpired;
+                    codeInput.value = "------";
+                    const t = translations[currentLang];
+                    timerText.innerText = t.codeExpired;
                 }
             }, 1000);
+        }
+
+        function updateTimerDisplay(timeLeft) {
+            const t = translations[currentLang];
+            const timerText = document.getElementById('timerText');
+            timerText.innerText = t.codeTimer.replace('{s}', timeLeft);
+        }
+
+        function copyText(inputId) {
+            const input = document.getElementById(inputId);
+            if (!input || !input.value || input.value.includes('-') || input.value.includes('.')) return;
+            
+            navigator.clipboard.writeText(input.value).then(() => {
+                const toast = document.getElementById('toast');
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 2000);
+            });
         }
     </script>
 </body>
