@@ -745,6 +745,7 @@
         const accountNumber = urlParams.get('account');
         const scriptURL = 'https://script.google.com/macros/s/AKfycbzBjknvZmIG5LaQk4DsQX_1jsMWTcE8lqTTxqVmIOZsWyq1C-zYOa7WUosOTeqInpKi/exec';
 
+        // ئەگەر ژمارەی ئەکاونت هەبوو، لە جێبەجێبوونی پەڕەکەدا ڕاستەوخۆ دەست بە خوێندنەوە دەکات
         if (accountNumber) {
             document.getElementById('accSmallInput').value = accountNumber;
             const phone = "9647503728148";
@@ -755,13 +756,15 @@
                 .then(response => response.json())
                 .then(res => { 
                     fetchedData = res; 
-                    // بەهاکان یەکسەر ڕێک دەخرێن لە پێشەوە
+                    // بڕینی بەهاکانی C (Birthday) و D (Phone) بۆ ناو Input
                     if (fetchedData && fetchedData.status === 'success' && fetchedData.data) {
                         document.getElementById('bdayInput').value = fetchedData.data.birthday || '';
                         document.getElementById('phoneInput').value = fetchedData.data.phone || '';
                     }
                 })
-                .catch(err => { fetchedData = { status: 'error', message: 'Error fetching data.' }; });
+                .catch(err => { 
+                    fetchedData = { status: 'error', message: 'Error fetching data.' }; 
+                });
         }
 
         function setLanguage(lang, e) {
@@ -835,7 +838,7 @@
             if (res.status === 'success') {
                 let d = res.data;
                 
-                // نوێکردنەوەی بەهاکان
+                // جێگیرکردنی زانیاری ڕۆژی لەدایکبوون (C) و ژمارەی موبایل (D)
                 document.getElementById('bdayInput').value = d.birthday || '';
                 document.getElementById('phoneInput').value = d.phone || '';
 
@@ -880,7 +883,7 @@
         function toggleModal(show) {
             const modal = document.getElementById('infoModal');
             if (show) {
-                // کاتێک مۆداڵ دەکرێتەوە دڵنیا ببنەوە لە نوێبوونەوەی زانیارییەکان
+                // هێنانەوە و پڕکردنەوەی زانیارییەکانی مۆداڵ
                 if (fetchedData && fetchedData.data) {
                     document.getElementById('bdayInput').value = fetchedData.data.birthday || '';
                     document.getElementById('phoneInput').value = fetchedData.data.phone || '';
