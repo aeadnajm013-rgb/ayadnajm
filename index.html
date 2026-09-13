@@ -607,7 +607,7 @@
                 <strong>تکایە کاتێک Apple ID داخل کرد ڕاستەوخۆ بیخەرە سەر ژمارەی موبایلی خۆت.</strong>
             </div>
             <button id="acceptBtn" class="accept-btn" disabled onclick="acceptAgreement()">
-                چاوەڕوان بە (8)...
+                چاوەڕوان بە (5)...
             </button>
         </div>
 
@@ -726,12 +726,10 @@
         let currentLang = 'ku';
         const urlParams = new URLSearchParams(window.location.search);
         const accountNumber = urlParams.get('account');
-        // Updated Google Apps Script URL
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbxipxrJ-5PqeFgi_RnMeuMHjWZ4sOGknEs37BfY7ErdIRpnuX1XXw2pb-30BFOLXIqT/exec';
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxBs9hot2zu7R9Ndz3ggEaurcW1vkEgRqF1LDyjtowxBs2z4vZYrow_dv9Nnw5tFxWK/exec';
         let countdownTimer = null;
         let fetchedData = null;
-        // Updated notification timer to 8 seconds
-        let waitTime = 8;
+        let waitTime = 5;
 
         function setLanguage(lang) {
             currentLang = lang;
