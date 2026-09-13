@@ -113,13 +113,14 @@
             margin-bottom: 20px;
         }
 
+        /* Blue & Gold Neon LED Animation */
         .db-logo {
             width: 200px;
             height: 200px;
             margin-bottom: 12px;
             position: relative;
             cursor: pointer;
-            animation: ledPulse 2s infinite alternate;
+            animation: ledPulseBlueGold 2.5s infinite alternate ease-in-out;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -133,19 +134,19 @@
             height: 100%;
         }
 
-        @keyframes ledPulse {
+        @keyframes ledPulseBlueGold {
             0% {
-                box-shadow: 0 0 12px #0284c7, inset 0 0 8px #0284c7;
-                border: 2px solid #0284c7;
+                box-shadow: 0 0 15px #0284c7, inset 0 0 10px #0284c7;
+                border: 2px solid #38bdf8;
             }
             50% {
-                box-shadow: 0 0 25px #38bdf8, inset 0 0 15px #38bdf8;
-                border: 2px solid #7dd3fc;
+                box-shadow: 0 0 25px #fbbf24, inset 0 0 15px #fbbf24;
+                border: 2px solid #f59e0b;
                 transform: scale(1.02);
             }
             100% {
-                box-shadow: 0 0 30px #e11d48, inset 0 0 15px #e11d48;
-                border: 2px solid #f43f5e;
+                box-shadow: 0 0 35px #38bdf8, inset 0 0 20px #fbbf24;
+                border: 2px solid #ffd700;
             }
         }
 
@@ -489,11 +490,11 @@
             <div class="db-logo">
                 <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
                     <defs>
-                        <!-- Ring Gradient (Blue to Pink) -->
+                        <!-- Ring Gradient (Blue to Gold) -->
                         <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" stop-color="#38bdf8"/>
                             <stop offset="50%" stop-color="#0284c7"/>
-                            <stop offset="100%" stop-color="#f43f5e"/>
+                            <stop offset="100%" stop-color="#fbbf24"/>
                         </linearGradient>
 
                         <!-- Blue Gradient for H right leg -->
@@ -509,10 +510,10 @@
                             <stop offset="100%" stop-color="#0284c7"/>
                         </linearGradient>
 
-                        <!-- 16 Text Gradient -->
+                        <!-- 16 Text Gradient (Blue to Gold) -->
                         <linearGradient id="grad16" x1="0%" y1="0%" x2="100%" y2="0%">
                             <stop offset="0%" stop-color="#38bdf8"/>
-                            <stop offset="100%" stop-color="#ec4899"/>
+                            <stop offset="100%" stop-color="#fbbf24"/>
                         </linearGradient>
                     </defs>
 
@@ -553,7 +554,7 @@
 
                     <!-- Main Brand Name: MamostaHemnIT -->
                     <text x="250" y="320" font-family="'Poppins', sans-serif" font-weight="800" font-size="33" text-anchor="middle">
-                        <tspan fill="#ffffff">Mamosta</tspan><tspan fill="#f43f5e">Hemn</tspan><tspan fill="#ffffff">IT</tspan>
+                        <tspan fill="#ffffff">Mamosta</tspan><tspan fill="#fbbf24">Hemn</tspan><tspan fill="#ffffff">IT</tspan>
                     </text>
 
                     <!-- Horizontal Sub-line -->
@@ -607,7 +608,7 @@
                 <strong>تکایە کاتێک Apple ID داخل کرد ڕاستەوخۆ بیخەرە سەر ژمارەی موبایلی خۆت.</strong>
             </div>
             <button id="acceptBtn" class="accept-btn" disabled onclick="acceptAgreement()">
-                چاوەڕوان بە (5)...
+                چاوەڕوان بە (8)...
             </button>
         </div>
 
@@ -726,10 +727,10 @@
         let currentLang = 'ku';
         const urlParams = new URLSearchParams(window.location.search);
         const accountNumber = urlParams.get('account');
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbw54zN2YvGCvqerG_Ysy1eZtOkCKxffYPcUpkVctGf8fB6RTTjX-hKFtcaEvqC-IDHC/exec';
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbz58fsY5a5QeYnabjnP6Ww5oCJFjNQyKWCWSeVGeuql9AbmjEZZJoc819wzz4cZ-YFz/exec';
         let countdownTimer = null;
         let fetchedData = null;
-        let waitTime = 5;
+        let waitTime = 8; // Changed timer to 8 seconds
 
         function setLanguage(lang) {
             currentLang = lang;
