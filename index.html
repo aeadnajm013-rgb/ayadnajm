@@ -8,11 +8,12 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Noto Kufi Arabic', sans-serif; }
         body { background: #030712; color: #fff; display: flex; justify-content: center; padding: 20px; }
-        .card { background: #0f0f12; border: 2px solid #eab308; width: 100%; max-width: 440px; border-radius: 20px; padding: 25px; box-shadow: 0 0 20px rgba(234, 179, 8, 0.2); }
+        .card { background: #0f0f12; border: 2px solid #eab308; width: 100%; max-width: 460px; border-radius: 20px; padding: 25px; box-shadow: 0 0 20px rgba(234, 179, 8, 0.2); }
         .title { text-align: center; color: #eab308; margin-bottom: 20px; font-size: 20px; font-weight: bold; }
         .field { margin-bottom: 12px; }
         label { display: block; font-size: 12px; color: #94a3b8; margin-bottom: 4px; }
-        input { width: 100%; padding: 10px; background: #030712; border: 1px solid #ca8a04; color: #fde047; border-radius: 8px; outline: none; }
+        input, textarea { width: 100%; padding: 10px; background: #030712; border: 1px solid #ca8a04; color: #fde047; border-radius: 8px; outline: none; }
+        textarea { height: 70px; resize: vertical; }
         .sheet-box { background: rgba(234, 179, 8, 0.1); border: 1px dashed #eab308; padding: 10px; border-radius: 10px; margin-bottom: 15px; }
         .btn-group { display: flex; gap: 10px; margin-top: 20px; }
         button { flex: 1; padding: 12px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.2s; }
@@ -28,16 +29,18 @@
 <div class="card">
     <div class="title">بەڕێوەبردنی زانیارییەکان</div>
     
-    <!-- دیاریکردنی ناوی شیت -->
+    <!-- لینکی شیت -->
     <div class="field sheet-box">
-        <label style="color: #fde047; font-weight: bold;">📄 ناوی شیت (Sheet Name)</label>
-        <input type="text" id="sheetNameInput" value="Sheet1" placeholder="نموونە: Sheet1 یان Accounts">
+        <label style="color: #fde047; font-weight: bold;">🔗 لینکی گۆگڵ شیتەکە (Google Sheet URL)</label>
+        <input type="text" id="sheetUrlInput" placeholder="https://docs.google.com/spreadsheets/d/...">
     </div>
 
+    <!-- خانەی بنووسینی بە کۆمەڵ -->
     <div class="field">
-        <label>ژمارەی ئەکاونت (خانەی F)</label>
-        <input type="text" id="accInput" placeholder="نموونە: 1">
+        <label>ژمارەی ئەکاونتەکان (دەتوانیت چەندین ژمارە بنووسیت: 1 3 55 66)</label>
+        <textarea id="accInput" placeholder="نموونە: 1 3 55 66 343 6566 7767"></textarea>
     </div>
+
     <div class="field">
         <label>ئیمەیل (Email)</label>
         <input type="text" id="emailInput">
@@ -61,38 +64,49 @@
 
     <div class="btn-group">
         <button class="btn-save" onclick="manageData('save')">تۆمارکردن / نوێکردنەوە</button>
-        <button class="btn-delete" onclick="manageData('delete')">سڕینەوە</button>
+        <button class="btn-delete" onclick="manageData('delete')">سڕینەوەی بە کۆمەڵ</button>
     </div>
 
     <div id="statusMsg" class="status"></div>
 </div>
 
 <script>
-    // URL ی دیاریکراوی گۆگڵ سکرێپتەکەت
     const scriptURL = 'https://script.google.com/macros/s/AKfycbz2EzHO7pya_o5AHxSyTVOWa5Vud6iIM4tvatbJvV9j3iB6R4_CFEg0BusRZAH0eWXhxg/exec';
 
     function manageData(actionType) {
-        const sheetName = document.getElementById('sheetNameInput').value.trim() || 'Sheet1';
-        const acc = document.getElementById('accInput').value.trim();
+        const sheetUrl = document.getElementById('sheetUrlInput').value.trim();
+        const rawAcc = document.getElementById('accInput').value.trim();
         const statusMsg = document.getElementById('statusMsg');
 
-        if (!acc) {
+        if (!sheetUrl) {
             statusMsg.style.color = '#ef4444';
-            statusMsg.innerText = 'تکایە ژمارەی ئەکاونت (خانەی F) بنووسە!';
+            statusMsg.innerText = 'تکایە لینکی شیتەکە دابنێ!';
             return;
         }
 
-        if (actionType === 'delete' && !confirm(`دڵنیایت لە سڕینەوەی ئەم زانیارییانە لە شیتی [${sheetName}]؟`)) {
+        if (!rawAcc) {
+            statusMsg.style.color = '#ef4444';
+            statusMsg.innerText = 'تکایە ژمارەی ئەکاونت بنووسە!';
             return;
+        }
+
+        // جیاکردنەوەی ژمارەکان چ بە بۆشایی، فاریزە، یان هێڵی نوێ بن
+        const accList = rawAcc.split(/[\s,]+/).filter(item => item.length > 0);
+
+        if (actionType === 'delete') {
+            if (!confirm(`دڵنیایت لە سڕینەوەی ئەم [${accList.length}] ئەکاونتە لە شیتەکەدا؟\n${accList.join(', ')}`)) {
+                return;
+            }
         }
 
         statusMsg.style.color = '#eab308';
-        statusMsg.innerText = 'چاوەڕوان بە...';
+        statusMsg.innerText = 'چاوەڕوان بە... داواکاری دەنێردرێت';
 
         const payload = {
             action: actionType,
-            sheetName: sheetName,
-            account: acc,
+            sheetUrl: sheetUrl,
+            account: accList[0], // بۆ توکمارکردنی یەک دانە
+            accounts: accList,   // بۆ سڕینەوەی بە کۆمەڵ
             email: document.getElementById('emailInput').value,
             password: document.getElementById('passInput').value,
             phone: document.getElementById('phoneInput').value,
@@ -109,9 +123,10 @@
         .then(() => {
             statusMsg.style.color = '#10b981';
             if (actionType === 'save') {
-                statusMsg.innerText = `زانیارییەکان بە سەرکەوتوویی لە شیتی [${sheetName}] تۆمار کران/نوێکرانەوە!`;
+                statusMsg.innerText = 'زانیارییەکان بە سەرکەوتوویی تۆمار کران/نوێکرانەوە!';
             } else {
-                statusMsg.innerText = `داواکاری سڕینەوە لە شیتی [${sheetName}] ئەنجام درا!`;
+                statusMsg.innerText = `داواکاری سڕینەوە بۆ [${accList.length}] ئەکاونت نێردرا و جێبەجێ کرا!`;
+                document.getElementById('accInput').value = '';
                 clearInputs();
             }
         })
