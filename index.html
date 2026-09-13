@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>hemn it - Account Info</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;600;700;800&family=Poppins:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>Mamosta Hemn IT</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;600;700;800;900&family=Poppins:wght@500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
@@ -109,13 +109,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 25px;
+            margin-top: 20px;
             margin-bottom: 20px;
         }
 
         .db-logo {
-            width: 140px;
-            height: 140px;
+            width: 200px;
+            height: 200px;
             margin-bottom: 12px;
             position: relative;
             cursor: pointer;
@@ -123,9 +123,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #020617;
-            padding: 10px;
+            background: #000000;
             border-radius: 50%;
+            padding: 5px;
         }
 
         .db-logo svg {
@@ -141,26 +141,12 @@
             50% {
                 box-shadow: 0 0 25px #38bdf8, inset 0 0 15px #38bdf8;
                 border: 2px solid #7dd3fc;
-                transform: scale(1.03);
+                transform: scale(1.02);
             }
             100% {
-                box-shadow: 0 0 35px #e11d48, inset 0 0 20px #e11d48;
+                box-shadow: 0 0 30px #e11d48, inset 0 0 15px #e11d48;
                 border: 2px solid #f43f5e;
             }
-        }
-
-        .company-title {
-            font-size: 24px;
-            color: #f8fafc;
-            font-weight: 800;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-            font-family: 'Poppins', 'Noto Kufi Arabic', sans-serif;
-            text-transform: uppercase;
-        }
-        .company-title span {
-            color: #38bdf8;
-            text-shadow: 0 0 12px rgba(56, 189, 248, 0.8);
         }
 
         .account-badge {
@@ -498,32 +484,112 @@
             </svg>
         </a>
 
-        <!-- Hemn IT Logo Custom Vector -->
+        <!-- MamostaHemnIT Exact SVG Logo -->
         <div class="logo-container">
             <div class="db-logo">
-                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="100" cy="100" r="92" fill="none" stroke="url(#gradR)" stroke-width="4"/>
+                <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
                     <defs>
-                        <linearGradient id="gradR" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#38bdf8;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#f43f5e;stop-opacity:1" />
+                        <!-- Ring Gradient (Blue to Pink) -->
+                        <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#38bdf8"/>
+                            <stop offset="50%" stop-color="#0284c7"/>
+                            <stop offset="100%" stop-color="#f43f5e"/>
+                        </linearGradient>
+
+                        <!-- Blue Gradient for H right leg -->
+                        <linearGradient id="blueH" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#38bdf8"/>
+                            <stop offset="100%" stop-color="#0284c7"/>
+                        </linearGradient>
+
+                        <!-- Swoosh Arc Gradient -->
+                        <linearGradient id="swooshGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ffffff"/>
+                            <stop offset="40%" stop-color="#38bdf8"/>
+                            <stop offset="100%" stop-color="#0284c7"/>
+                        </linearGradient>
+
+                        <!-- 16 Text Gradient -->
+                        <linearGradient id="grad16" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#38bdf8"/>
+                            <stop offset="100%" stop-color="#ec4899"/>
                         </linearGradient>
                     </defs>
-                    <!-- Circuit Design -->
-                    <g stroke="#38bdf8" stroke-width="2" fill="none" opacity="0.8">
-                        <path d="M 30 70 L 60 70 M 35 90 L 65 90 M 40 110 L 65 110 M 45 130 L 70 130"/>
-                        <circle cx="30" cy="70" r="3" fill="#38bdf8"/>
-                        <circle cx="35" cy="90" r="3" fill="#38bdf8"/>
-                        <circle cx="40" cy="110" r="3" fill="#38bdf8"/>
-                        <circle cx="45" cy="130" r="3" fill="#38bdf8"/>
+
+                    <!-- Outer Neon Ring -->
+                    <circle cx="250" cy="250" r="235" fill="none" stroke="url(#ringGrad)" stroke-width="8"/>
+
+                    <!-- Left Circuit Lines -->
+                    <g stroke="#38bdf8" stroke-width="3" fill="none">
+                        <path d="M 170 120 L 120 120 L 90 150 L 50 150" />
+                        <path d="M 180 145 L 140 145 L 115 170 L 60 170" />
+                        <path d="M 175 170 L 145 170 L 120 195 L 70 195" />
+                        <path d="M 170 195 L 130 195 L 100 225 L 50 225" />
+                        <path d="M 170 220 L 140 220 L 110 250 L 65 250" />
+                        <path d="M 175 245 L 145 245 L 125 265 L 80 265" />
+                        <path d="M 185 270 L 155 270 L 135 290 L 95 290" />
+
+                        <!-- Nodes (Circles) -->
+                        <circle cx="50" cy="150" r="5" fill="#000" stroke="#38bdf8" stroke-width="3"/>
+                        <circle cx="60" cy="170" r="5" fill="#000" stroke="#38bdf8" stroke-width="3"/>
+                        <circle cx="70" cy="195" r="5" fill="#000" stroke="#38bdf8" stroke-width="3"/>
+                        <circle cx="50" cy="225" r="5" fill="#000" stroke="#38bdf8" stroke-width="3"/>
+                        <circle cx="65" cy="250" r="5" fill="#000" stroke="#38bdf8" stroke-width="3"/>
+                        <circle cx="80" cy="265" r="5" fill="#000" stroke="#38bdf8" stroke-width="3"/>
+                        <circle cx="95" cy="290" r="5" fill="#000" stroke="#38bdf8" stroke-width="3"/>
                     </g>
-                    <!-- Letter H Concept -->
-                    <path d="M 85 50 L 85 140 M 130 65 L 130 140 M 85 95 L 130 95" stroke="#ffffff" stroke-width="16" stroke-linecap="round"/>
-                    <path d="M 125 60 C 145 60, 155 80, 125 100" fill="none" stroke="#38bdf8" stroke-width="10" stroke-linecap="round"/>
-                    <text x="155" y="115" font-family="'Poppins', sans-serif" font-weight="900" font-size="22" fill="#38bdf8">IT</text>
+
+                    <!-- Main "H" Shape -->
+                    <!-- Left Pillar (White) -->
+                    <path d="M 185 285 L 225 125 L 260 125 L 220 285 Z" fill="#ffffff" />
+                    <!-- Right Pillar (Blue Gradient) -->
+                    <path d="M 260 285 L 300 125 L 335 125 L 295 285 Z" fill="url(#blueH)" />
+
+                    <!-- Dynamic Curved Swoosh through H -->
+                    <path d="M 140 280 C 180 240, 260 160, 380 180 C 320 200, 220 250, 160 295 Z" fill="url(#swooshGrad)" />
+
+                    <!-- IT Subtext beside H -->
+                    <text x="330" y="250" font-family="'Poppins', sans-serif" font-weight="900" font-size="38" fill="#38bdf8" italic>IT</text>
+
+                    <!-- Main Brand Name: MamostaHemnIT -->
+                    <text x="250" y="320" font-family="'Poppins', sans-serif" font-weight="800" font-size="33" text-anchor="middle">
+                        <tspan fill="#ffffff">Mamosta</tspan><tspan fill="#f43f5e">Hemn</tspan><tspan fill="#ffffff">IT</tspan>
+                    </text>
+
+                    <!-- Horizontal Sub-line -->
+                    <g stroke="#38bdf8" stroke-width="2">
+                        <line x1="120" y1="335" x2="220" y2="335"/>
+                        <circle cx="120" cy="335" r="4" fill="#38bdf8"/>
+                        <text x="250" y="340" font-family="'Poppins', sans-serif" font-weight="700" font-size="14" fill="#38bdf8" text-anchor="middle">IT</text>
+                        <line x1="280" y1="335" x2="380" y2="335"/>
+                        <circle cx="380" cy="335" r="4" fill="#38bdf8"/>
+                    </g>
+
+                    <!-- Experience Laurel Leaves -->
+                    <g fill="#0284c7">
+                        <!-- Left Laurel -->
+                        <path d="M 130 380 Q 120 395 130 410 Q 140 395 130 380"/>
+                        <path d="M 120 390 Q 105 400 115 415 Q 125 405 120 390"/>
+                        <path d="M 115 410 Q 100 420 110 435 Q 120 425 115 410"/>
+                        <!-- Right Laurel -->
+                        <path d="M 370 380 Q 380 395 370 410 Q 360 395 370 380"/>
+                        <path d="M 380 390 Q 395 400 385 415 Q 375 405 380 390"/>
+                        <path d="M 385 410 Q 400 420 390 435 Q 380 425 385 410"/>
+                    </g>
+
+                    <!-- Experience Text: 16 ساڵ -->
+                    <text x="250" y="395" text-anchor="middle">
+                        <tspan font-family="'Poppins', sans-serif" font-weight="900" font-size="44" fill="url(#grad16)">16 </tspan>
+                        <tspan font-family="'Noto Kufi Arabic', sans-serif" font-weight="800" font-size="32" fill="#ffffff">ساڵ</tspan>
+                    </text>
+
+                    <!-- Bottom Badge: ئەزموونم -->
+                    <g transform="translate(180, 410)">
+                        <path d="M 10 0 L 130 0 L 120 30 L 20 30 Z" fill="#030712" stroke="#0284c7" stroke-width="2" />
+                        <text x="70" y="21" font-family="'Noto Kufi Arabic', sans-serif" font-weight="700" font-size="16" fill="#38bdf8" text-anchor="middle">ئەزموونم</text>
+                    </g>
                 </svg>
             </div>
-            <div class="company-title">HEMN <span>IT</span></div>
             
             <div class="account-badge">
                 <span id="lblAccount">ئەکاونت:</span>
@@ -700,7 +766,7 @@
         if (accountNumber) {
             document.getElementById('accSmallInput').value = accountNumber;
             const phone = "9647503728148";
-            const message = encodeURIComponent(`Hello, I have account number ${accountNumber} at HEMN IT.`);
+            const message = encodeURIComponent(`Hello, I have account number ${accountNumber} at Mamosta Hemn IT.`);
             document.getElementById('whatsappLink').href = `https://wa.me/${phone}?text=${message}`;
 
             fetch(`${scriptURL}?account=${accountNumber}`)
