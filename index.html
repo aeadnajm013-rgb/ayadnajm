@@ -832,42 +832,62 @@
             }
 
             resultInput.value = "...";
+
             fetch(linkUrl)
-                .then(response => response.text())
-                .then(data => {
-                    resultInput.value = data;
-                    let seconds = 60;
-                    timerNotice.innerText = t.codeTimer.replace('{s}', seconds);
-                    
-                    countdownTimer = setInterval(() => {
-                        seconds--;
-                        if (seconds > 0) {
-                            timerNotice.innerText = t.codeTimer.replace('{s}', seconds);
-                        } else {
-                            clearInterval(countdownTimer);
-                            resultInput.value = "";
-                            timerNotice.innerText = t.codeExpired;
-                        }
-                    }, 1000);
+                .then(res => res.text())
+                .then(text => {
+                    const match = text.match(/\b\d{6}\b/);
+                    if (match) {
+                        resultInput.value = match[0];
+                        startCodeTimer(60);
+                    } else {
+                        resultInput.value = t.codeNotFound;
+                    }
                 })
                 .catch(err => {
                     resultInput.value = t.codeErr;
                 });
         }
 
-        function copyText(elementId) {
-            const input = document.getElementById(elementId);
-            if (!input || !input.value) return;
+        function startCodeTimer(seconds) {
+            let left = seconds;
+            const timerNotice = document.getElementById('timerNotice');
+            const resultInput = document.getElementById('fetchedResultInput');
+            const t = translations[currentLang];
 
-            input.select();
-            input.setSelectionRange(0, 99999);
-            navigator.clipboard.writeText(input.value).then(() => {
-                const toast = document.getElementById('toast');
-                toast.classList.add('show');
-                setTimeout(() => {
-                    toast.classList.remove('show');
-                }, 2000);
+            timerNotice.innerText = t.codeTimer.replace('{s}', left);
+
+            countdownTimer = setInterval(() => {
+                left--;
+                if (left > 0) {
+                    timerNotice.innerText = t.codeTimer.replace('{s}', left);
+                } else {
+                    clearInterval(countdownTimer);
+                    resultInput.value = "";
+                    timerNotice.innerText = t.codeExpired;
+                }
+            }, 1000);
+        }
+
+        function copyText(inputId) {
+            const inputEl = document.getElementById(inputId);
+            if (!inputEl || !inputEl.value) return;
+
+            navigator.clipboard.writeText(inputEl.value).then(() => {
+                showToast();
+            }).catch(() => {
+                inputEl.select();
+                document.execCommand('copy');
+                showToast();
             });
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2000);
         }
     </script>
 </body>
