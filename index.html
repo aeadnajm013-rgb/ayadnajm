@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mamosta Hemn IT</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;600;700;800;900&family=Poppins:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    <title>ABO PHONE - Account Info</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;600;700;800&family=Poppins:wght@500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
@@ -15,7 +15,7 @@
         
         body {
             background: #030712;
-            background: radial-gradient(circle at top, #0f172a 0%, #030712 100%);
+            background: radial-gradient(circle at top, #141000 0%, #030712 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -23,11 +23,11 @@
             padding: 20px;
         }
         .container {
-            background: rgba(15, 23, 42, 0.95);
+            background: rgba(15, 15, 18, 0.95);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 2px solid #38bdf8;
-            box-shadow: 0 0 25px rgba(56, 189, 248, 0.25);
+            border: 2px solid #eab308;
+            box-shadow: 0 0 25px rgba(234, 179, 8, 0.25);
             width: 100%;
             max-width: 440px;
             border-radius: 28px;
@@ -47,7 +47,7 @@
             background: rgba(3, 7, 18, 0.8);
             padding: 3px;
             border-radius: 20px;
-            border: 1px solid #0284c7;
+            border: 1px solid #ca8a04;
             z-index: 10;
         }
         [dir="ltr"] .lang-switcher {
@@ -67,9 +67,9 @@
             font-family: 'Poppins', sans-serif;
         }
         .lang-btn.active {
-            background: #38bdf8;
+            background: #eab308;
             color: #030712;
-            box-shadow: 0 0 8px rgba(56, 189, 248, 0.5);
+            box-shadow: 0 0 8px rgba(234, 179, 8, 0.5);
         }
 
         /* WhatsApp Circular Banner */
@@ -109,24 +109,23 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 20px;
+            margin-top: 25px;
             margin-bottom: 20px;
         }
 
-        /* Blue & Gold Neon LED Animation */
         .db-logo {
-            width: 200px;
-            height: 200px;
+            width: 140px;
+            height: 120px;
             margin-bottom: 12px;
             position: relative;
             cursor: pointer;
-            animation: ledPulseBlueGold 2.5s infinite alternate ease-in-out;
+            animation: ledPulse 2s infinite alternate;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #000000;
-            border-radius: 50%;
-            padding: 5px;
+            background: #090803;
+            padding: 10px;
+            border-radius: 18px;
         }
 
         .db-logo svg {
@@ -134,26 +133,39 @@
             height: 100%;
         }
 
-        @keyframes ledPulseBlueGold {
+        @keyframes ledPulse {
             0% {
-                box-shadow: 0 0 15px #0284c7, inset 0 0 10px #0284c7;
-                border: 2px solid #38bdf8;
+                box-shadow: 0 0 12px #ca8a04, inset 0 0 8px #ca8a04;
+                border: 2px solid #ca8a04;
             }
             50% {
-                box-shadow: 0 0 25px #fbbf24, inset 0 0 15px #fbbf24;
-                border: 2px solid #f59e0b;
-                transform: scale(1.02);
+                box-shadow: 0 0 25px #eab308, inset 0 0 15px #eab308;
+                border: 2px solid #fde047;
+                transform: scale(1.03);
             }
             100% {
-                box-shadow: 0 0 35px #38bdf8, inset 0 0 20px #fbbf24;
-                border: 2px solid #ffd700;
+                box-shadow: 0 0 35px #a16207, inset 0 0 20px #a16207;
+                border: 2px solid #a16207;
             }
+        }
+
+        .company-title {
+            font-size: 22px;
+            color: #f8fafc;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            font-family: 'Poppins', 'Noto Kufi Arabic', sans-serif;
+        }
+        .company-title span {
+            color: #eab308;
+            text-shadow: 0 0 12px rgba(234, 179, 8, 0.8);
         }
 
         .account-badge {
             background: rgba(3, 7, 18, 0.9);
-            border: 1px solid #38bdf8;
-            box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+            border: 1px solid #eab308;
+            box-shadow: 0 0 10px rgba(234, 179, 8, 0.3);
             padding: 5px 14px;
             border-radius: 20px;
             display: inline-flex;
@@ -168,7 +180,7 @@
         .account-badge input {
             background: transparent;
             border: none;
-            color: #7dd3fc;
+            color: #fde047;
             font-size: 15px;
             font-weight: 700;
             width: 75px;
@@ -253,8 +265,8 @@
             display: flex;
             align-items: center;
             background: rgba(3, 7, 18, 0.8);
-            border: 1px solid #0284c7;
-            box-shadow: 0 0 8px rgba(2, 132, 199, 0.2);
+            border: 1px solid #ca8a04;
+            box-shadow: 0 0 8px rgba(202, 138, 4, 0.2);
             border-radius: 12px;
             overflow: hidden;
             transition: all 0.3s ease;
@@ -271,11 +283,11 @@
             font-family: 'Poppins', 'Noto Kufi Arabic', sans-serif;
         }
         .copy-btn {
-            background: rgba(12, 74, 110, 0.8);
+            background: rgba(45, 36, 10, 0.8);
             border: none;
             padding: 0 14px;
             cursor: pointer;
-            color: #38bdf8;
+            color: #fde047;
             font-size: 12px;
             font-weight: 700;
             transition: background 0.2s, color 0.2s;
@@ -289,16 +301,16 @@
             border-left: 1px solid rgba(255, 255, 255, 0.05);
         }
         .copy-btn:hover {
-            background: #0284c7;
+            background: #ca8a04;
             color: #ffffff;
-            box-shadow: 0 0 10px #0284c7;
+            box-shadow: 0 0 10px #ca8a04;
         }
         
         .action-fetch-box {
             margin: 14px 0;
             background: rgba(3, 7, 18, 0.95);
-            border: 1.5px solid #38bdf8;
-            box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
+            border: 1.5px solid #eab308;
+            box-shadow: 0 0 12px rgba(234, 179, 8, 0.25);
             border-radius: 14px;
             padding: 12px;
             text-align: right;
@@ -307,30 +319,30 @@
             text-align: left;
         }
         .action-fetch-box .field-label {
-            color: #7dd3fc;
+            color: #fde047;
             font-weight: 700;
             margin-bottom: 6px;
         }
         .fetch-btn {
             display: block;
             width: 100%;
-            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+            background: linear-gradient(135deg, #ca8a04 0%, #854d0e 100%);
             color: #ffffff;
-            border: 1px solid #7dd3fc;
+            border: 1px solid #fde047;
             cursor: pointer;
             padding: 9px;
             border-radius: 8px;
             font-size: 12px;
             font-weight: 700;
-            box-shadow: 0 0 10px rgba(2, 132, 199, 0.4);
+            box-shadow: 0 0 10px rgba(202, 138, 4, 0.4);
             transition: all 0.2s ease;
             margin-top: 8px;
         }
 
         .code-display-box {
             background: #020617;
-            border: 1.5px solid #7dd3fc;
-            box-shadow: 0 0 10px rgba(125, 211, 252, 0.3), inset 0 0 6px rgba(125, 211, 252, 0.15);
+            border: 1.5px solid #fde047;
+            box-shadow: 0 0 10px rgba(253, 224, 71, 0.3), inset 0 0 6px rgba(253, 224, 71, 0.15);
             border-radius: 10px;
             padding: 4px 8px;
             display: flex;
@@ -340,7 +352,7 @@
         .code-input-field {
             background: transparent;
             border: none;
-            color: #7dd3fc;
+            color: #fde047;
             font-size: 16px;
             font-weight: 800;
             text-align: center;
@@ -360,9 +372,9 @@
 
         .show-modal-btn {
             width: 100%;
-            background: rgba(12, 74, 110, 0.8);
-            border: 1.5px solid #38bdf8;
-            color: #7dd3fc;
+            background: rgba(30, 25, 10, 0.8);
+            border: 1.5px solid #eab308;
+            color: #fde047;
             padding: 10px;
             border-radius: 12px;
             font-size: 13px;
@@ -374,12 +386,12 @@
             gap: 8px;
             margin-top: 15px;
             transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+            box-shadow: 0 0 10px rgba(234, 179, 8, 0.2);
         }
         .show-modal-btn:hover {
-            background: #0369a1;
+            background: #713f12;
             color: #ffffff;
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+            box-shadow: 0 0 15px rgba(234, 179, 8, 0.5);
         }
 
         .modal-overlay {
@@ -404,9 +416,9 @@
             pointer-events: auto;
         }
         .modal-card {
-            background: rgba(15, 23, 42, 0.98);
-            border: 2px solid #7dd3fc;
-            box-shadow: 0 0 25px rgba(125, 211, 252, 0.4);
+            background: rgba(15, 15, 18, 0.98);
+            border: 2px solid #fde047;
+            box-shadow: 0 0 25px rgba(253, 224, 71, 0.4);
             border-radius: 20px;
             width: 100%;
             max-width: 380px;
@@ -430,7 +442,7 @@
             padding-bottom: 8px;
         }
         .modal-title {
-            color: #7dd3fc;
+            color: #fde047;
             font-size: 14px;
             font-weight: 800;
         }
@@ -485,112 +497,27 @@
             </svg>
         </a>
 
-        <!-- MamostaHemnIT Exact SVG Logo -->
+        <!-- ABO Phone Logo -->
         <div class="logo-container">
             <div class="db-logo">
-                <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <!-- Ring Gradient (Blue to Gold) -->
-                        <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#38bdf8"/>
-                            <stop offset="50%" stop-color="#0284c7"/>
-                            <stop offset="100%" stop-color="#fbbf24"/>
-                        </linearGradient>
+                <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="25" y="15" width="75" height="135" rx="12" fill="none" stroke="#eab308" stroke-width="6"/>
+                    <rect x="52" y="22" width="20" height="5" rx="2" fill="#eab308"/>
+                    <path d="M 38 125 L 62 45 L 86 125 M 46 95 L 78 95 L 62 112" fill="none" stroke="#fde047" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+                    
+                    <path d="M 120 45 L 148 45 C 168 45 168 78 148 78 L 120 78 L 120 45 Z" fill="none" stroke="#fde047" stroke-width="7" stroke-linejoin="round"/>
+                    <path d="M 120 78 L 152 78 C 174 78 174 115 152 115 L 120 115 L 120 78 Z" fill="none" stroke="#fde047" stroke-width="7" stroke-linejoin="round"/>
+                    <circle cx="140" cy="62" r="4" fill="#fde047"/>
+                    <circle cx="143" cy="96" r="4" fill="#fde047"/>
 
-                        <!-- Blue Gradient for H right leg -->
-                        <linearGradient id="blueH" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#38bdf8"/>
-                            <stop offset="100%" stop-color="#0284c7"/>
-                        </linearGradient>
+                    <circle cx="215" cy="80" r="32" fill="none" stroke="#fde047" stroke-width="7"/>
+                    <circle cx="215" cy="80" r="18" fill="none" stroke="#fde047" stroke-width="3" stroke-dasharray="4 2"/>
 
-                        <!-- Swoosh Arc Gradient -->
-                        <linearGradient id="swooshGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#ffffff"/>
-                            <stop offset="40%" stop-color="#38bdf8"/>
-                            <stop offset="100%" stop-color="#0284c7"/>
-                        </linearGradient>
-
-                        <!-- 16 Text Gradient (Blue to Gold) -->
-                        <linearGradient id="grad16" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stop-color="#38bdf8"/>
-                            <stop offset="100%" stop-color="#fbbf24"/>
-                        </linearGradient>
-                    </defs>
-
-                    <!-- Outer Neon Ring -->
-                    <circle cx="250" cy="250" r="235" fill="none" stroke="url(#ringGrad)" stroke-width="8"/>
-
-                    <!-- Left Circuit Lines -->
-                    <g stroke="#38bdf8" stroke-width="3" fill="none">
-                        <path d="M 170 120 L 120 120 L 90 150 L 50 150" />
-                        <path d="M 180 145 L 140 145 L 115 170 L 60 170" />
-                        <path d="M 175 170 L 145 170 L 120 195 L 70 195" />
-                        <path d="M 170 195 L 130 195 L 100 225 L 50 225" />
-                        <path d="M 170 220 L 140 220 L 110 250 L 65 250" />
-                        <path d="M 175 245 L 145 245 L 125 265 L 80 265" />
-                        <path d="M 185 270 L 155 270 L 135 290 L 95 290" />
-
-                        <!-- Nodes (Circles) -->
-                        <circle cx="50" cy="150" r="5" fill="#000" stroke="#38bdf8" stroke-width="3"/>
-                        <circle cx="60" cy="170" r="5" fill="#000" stroke="#38bdf8" stroke-width="3"/>
-                        <circle cx="70" cy="195" r="5" fill="#000" stroke="#38bdf8" stroke-width="3"/>
-                        <circle cx="50" cy="225" r="5" fill="#000" stroke="#38bdf8" stroke-width="3"/>
-                        <circle cx="65" cy="250" r="5" fill="#000" stroke="#38bdf8" stroke-width="3"/>
-                        <circle cx="80" cy="265" r="5" fill="#000" stroke="#38bdf8" stroke-width="3"/>
-                        <circle cx="95" cy="290" r="5" fill="#000" stroke="#38bdf8" stroke-width="3"/>
-                    </g>
-
-                    <!-- Main "H" Shape -->
-                    <!-- Left Pillar (White) -->
-                    <path d="M 185 285 L 225 125 L 260 125 L 220 285 Z" fill="#ffffff" />
-                    <!-- Right Pillar (Blue Gradient) -->
-                    <path d="M 260 285 L 300 125 L 335 125 L 295 285 Z" fill="url(#blueH)" />
-
-                    <!-- Dynamic Curved Swoosh through H -->
-                    <path d="M 140 280 C 180 240, 260 160, 380 180 C 320 200, 220 250, 160 295 Z" fill="url(#swooshGrad)" />
-
-                    <!-- IT Subtext beside H -->
-                    <text x="330" y="250" font-family="'Poppins', sans-serif" font-weight="900" font-size="38" fill="#38bdf8" italic>IT</text>
-
-                    <!-- Main Brand Name: MamostaHemnIT -->
-                    <text x="250" y="320" font-family="'Poppins', sans-serif" font-weight="800" font-size="33" text-anchor="middle">
-                        <tspan fill="#ffffff">Mamosta</tspan><tspan fill="#fbbf24">Hemn</tspan><tspan fill="#ffffff">IT</tspan>
-                    </text>
-
-                    <!-- Horizontal Sub-line -->
-                    <g stroke="#38bdf8" stroke-width="2">
-                        <line x1="120" y1="335" x2="220" y2="335"/>
-                        <circle cx="120" cy="335" r="4" fill="#38bdf8"/>
-                        <text x="250" y="340" font-family="'Poppins', sans-serif" font-weight="700" font-size="14" fill="#38bdf8" text-anchor="middle">IT</text>
-                        <line x1="280" y1="335" x2="380" y2="335"/>
-                        <circle cx="380" cy="335" r="4" fill="#38bdf8"/>
-                    </g>
-
-                    <!-- Experience Laurel Leaves -->
-                    <g fill="#0284c7">
-                        <!-- Left Laurel -->
-                        <path d="M 130 380 Q 120 395 130 410 Q 140 395 130 380"/>
-                        <path d="M 120 390 Q 105 400 115 415 Q 125 405 120 390"/>
-                        <path d="M 115 410 Q 100 420 110 435 Q 120 425 115 410"/>
-                        <!-- Right Laurel -->
-                        <path d="M 370 380 Q 380 395 370 410 Q 360 395 370 380"/>
-                        <path d="M 380 390 Q 395 400 385 415 Q 375 405 380 390"/>
-                        <path d="M 385 410 Q 400 420 390 435 Q 380 425 385 410"/>
-                    </g>
-
-                    <!-- Experience Text: 16 ساڵ -->
-                    <text x="250" y="395" text-anchor="middle">
-                        <tspan font-family="'Poppins', sans-serif" font-weight="900" font-size="44" fill="url(#grad16)">16 </tspan>
-                        <tspan font-family="'Noto Kufi Arabic', sans-serif" font-weight="800" font-size="32" fill="#ffffff">ساڵ</tspan>
-                    </text>
-
-                    <!-- Bottom Badge: ئەزموونم -->
-                    <g transform="translate(180, 410)">
-                        <path d="M 10 0 L 130 0 L 120 30 L 20 30 Z" fill="#030712" stroke="#0284c7" stroke-width="2" />
-                        <text x="70" y="21" font-family="'Noto Kufi Arabic', sans-serif" font-weight="700" font-size="16" fill="#38bdf8" text-anchor="middle">ئەزموونم</text>
-                    </g>
+                    <line x1="110" y1="123" x2="245" y2="123" stroke="#eab308" stroke-width="3"/>
+                    <text x="178" y="148" font-family="'Poppins', sans-serif" font-weight="800" font-size="22" fill="#fde047" text-anchor="middle" letter-spacing="2">Phone</text>
                 </svg>
             </div>
+            <div class="company-title">ABO <span>PHONE</span></div>
             
             <div class="account-badge">
                 <span id="lblAccount">ئەکاونت:</span>
@@ -608,7 +535,7 @@
                 <strong>تکایە کاتێک Apple ID داخل کرد ڕاستەوخۆ بیخەرە سەر ژمارەی موبایلی خۆت.</strong>
             </div>
             <button id="acceptBtn" class="accept-btn" disabled onclick="acceptAgreement()">
-                چاوەڕوان بە (8)...
+                چاوەڕوان بە (5)...
             </button>
         </div>
 
@@ -727,10 +654,10 @@
         let currentLang = 'ku';
         const urlParams = new URLSearchParams(window.location.search);
         const accountNumber = urlParams.get('account');
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbz58fsY5a5QeYnabjnP6Ww5oCJFjNQyKWCWSeVGeuql9AbmjEZZJoc819wzz4cZ-YFz/exec';
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbx008VjkdfebZp9jUS7A8_m9F5WU6QgbmH6cUujoHOWIo3mi2ef3HbNBzeuszzsGkC9/exec';
         let countdownTimer = null;
         let fetchedData = null;
-        let waitTime = 8;
+        let waitTime = 5;
 
         function setLanguage(lang) {
             currentLang = lang;
@@ -766,8 +693,8 @@
 
         if (accountNumber) {
             document.getElementById('accSmallInput').value = accountNumber;
-            const phone = "9647503728148";
-            const message = encodeURIComponent(`Hello, I have account number ${accountNumber} at Mamosta Hemn IT.`);
+            const phone = "9647507539339";
+            const message = encodeURIComponent(`Hello, I have account number ${accountNumber} at ABO PHONE.`);
             document.getElementById('whatsappLink').href = `https://wa.me/${phone}?text=${message}`;
 
             fetch(`${scriptURL}?account=${accountNumber}`)
@@ -806,59 +733,59 @@
             if (fetchedData) {
                 renderData(fetchedData);
             } else {
-                document.getElementById('loadingText').innerText = t.loading;
                 const checkInterval = setInterval(() => {
                     if (fetchedData) {
                         clearInterval(checkInterval);
                         renderData(fetchedData);
                     }
-                }, 300);
+                }, 200);
             }
         }
 
-        function renderData(data) {
-            const contentDiv = document.getElementById('content');
+        function renderData(res) {
             const t = translations[currentLang];
+            if (res.status === 'success') {
+                let d = res.data;
+                
+                document.getElementById('bdayInput').value = d.birthday || '';
+                document.getElementById('phoneInput').value = d.phone || '';
 
-            if (data.status === 'error') {
-                contentDiv.innerHTML = `<div class="error-msg">${data.message}</div>`;
-                return;
+                document.getElementById('content').innerHTML = `
+                    <div class="field-group">
+                        <label class="field-label">${t.lblEmail}</label>
+                        <div class="input-with-copy">
+                            <input type="text" id="emailInput" class="field-input" value="${d.email || ''}" readonly>
+                            <button class="copy-btn" onclick="copyText('emailInput')">${t.btnCopy}</button>
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <label class="field-label">${t.lblPass}</label>
+                        <div class="input-with-copy">
+                            <input type="text" id="passInput" class="field-input" value="${d.password || ''}" readonly>
+                            <button class="copy-btn" onclick="copyText('passInput')">${t.btnCopy}</button>
+                        </div>
+                    </div>
+
+                    <div class="action-fetch-box">
+                        <label class="field-label">${t.lblCode}</label>
+                        
+                        <div class="code-display-box">
+                            <input type="text" id="fetchedResultInput" class="code-input-field" value="" placeholder="------" readonly>
+                            <button class="copy-btn" style="border-radius: 6px; min-height: 28px; padding: 0 10px; font-size: 11px;" onclick="copyText('fetchedResultInput')">${t.btnCopy}</button>
+                        </div>
+                        <div id="timerNotice" class="timer-text"></div>
+
+                        <button class="fetch-btn" onclick="fetchTargetLink('${d.link || ''}')">${t.btnGetCode}</button>
+                    </div>
+
+                    <button class="show-modal-btn" onclick="toggleModal(true)">
+                        ${t.btnShowHidden}
+                    </button>
+                `;
+            } else {
+                document.getElementById('content').innerHTML = `<div class="error-msg">${res.message}</div>`;
             }
-
-            document.getElementById('bdayInput').value = data.birthday || '';
-            document.getElementById('phoneInput').value = data.phone || '';
-
-            contentDiv.innerHTML = `
-                <div class="field-group">
-                    <label class="field-label">${t.lblEmail}</label>
-                    <div class="input-with-copy">
-                        <input type="text" id="emailInput" class="field-input" value="${data.email || ''}" readonly>
-                        <button class="copy-btn" onclick="copyText('emailInput')">${t.btnCopy}</button>
-                    </div>
-                </div>
-
-                <div class="field-group">
-                    <label class="field-label">${t.lblPass}</label>
-                    <div class="input-with-copy">
-                        <input type="text" id="passInput" class="field-input" value="${data.password || ''}" readonly>
-                        <button class="copy-btn" onclick="copyText('passInput')">${t.btnCopy}</button>
-                    </div>
-                </div>
-
-                <div class="action-fetch-box">
-                    <label class="field-label">${t.lblCode}</label>
-                    <div class="code-display-box">
-                        <input type="text" id="codeInput" class="code-input-field" value="------" readonly>
-                        <button class="copy-btn" onclick="copyText('codeInput')">${t.btnCopy}</button>
-                    </div>
-                    <div id="timerText" class="timer-text"></div>
-                    <button id="btnFetchCode" class="fetch-btn" onclick="fetchVerificationCode('${data.codeUrl}')">${t.btnGetCode}</button>
-                </div>
-
-                <button class="show-modal-btn" onclick="toggleModal(true)">
-                    ${t.btnShowHidden}
-                </button>
-            `;
         }
 
         function toggleModal(show) {
@@ -870,85 +797,70 @@
             }
         }
 
-        function fetchVerificationCode(codeUrl) {
-            const t = translations[currentLang];
-            const codeInput = document.getElementById('codeInput');
-            const timerText = document.getElementById('timerText');
-            const btnFetch = document.getElementById('btnFetchCode');
+        function playBeepSound() {
+            try {
+                const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioCtx.createOscillator();
+                const gainNode = audioCtx.createGain();
 
-            if (!codeUrl) {
-                codeInput.value = t.codeNoLink;
+                oscillator.type = 'sine';
+                oscillator.frequency.setValueAtTime(800, audioCtx.currentTime);
+                gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
+
+                oscillator.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+
+                oscillator.start();
+                oscillator.stop(audioCtx.currentTime + 0.15);
+            } catch (e) {
+                console.log("Audio Error");
+            }
+        }
+
+        function fetchTargetLink(linkUrl) {
+            const resultInput = document.getElementById('fetchedResultInput');
+            const timerNotice = document.getElementById('timerNotice');
+            const t = translations[currentLang];
+            
+            clearInterval(countdownTimer);
+            timerNotice.innerText = "";
+            playBeepSound();
+
+            if (!linkUrl || linkUrl === '#') {
+                resultInput.value = t.codeNoLink;
                 return;
             }
 
-            btnFetch.disabled = true;
-            codeInput.value = "...";
-            timerText.innerText = "";
-
-            if (countdownTimer) clearInterval(countdownTimer);
-
-            fetch(codeUrl)
-                .then(res => res.text())
-                .then(text => {
-                    btnFetch.disabled = false;
+            resultInput.value = "...";
+            fetch(linkUrl)
+                .then(response => response.text())
+                .then(data => {
+                    resultInput.value = data;
+                    let seconds = 60;
+                    timerNotice.innerText = t.codeTimer.replace('{s}', seconds);
                     
-                    let extractedCode = null;
-                    const regex6Digit = /\b\d{6}\b/;
-                    const match6 = text.match(regex6Digit);
-
-                    if (match6) {
-                        extractedCode = match6[0];
-                    } else {
-                        const regexAnyDigits = /\d+/g;
-                        const matches = text.match(regexAnyDigits);
-                        if (matches) {
-                            extractedCode = matches.join('');
+                    countdownTimer = setInterval(() => {
+                        seconds--;
+                        if (seconds > 0) {
+                            timerNotice.innerText = t.codeTimer.replace('{s}', seconds);
+                        } else {
+                            clearInterval(countdownTimer);
+                            resultInput.value = "";
+                            timerNotice.innerText = t.codeExpired;
                         }
-                    }
-
-                    if (extractedCode) {
-                        codeInput.value = extractedCode;
-                        startCodeTimer(60);
-                    } else {
-                        codeInput.value = t.codeNotFound;
-                    }
+                    }, 1000);
                 })
                 .catch(err => {
-                    btnFetch.disabled = false;
-                    codeInput.value = t.codeErr;
+                    resultInput.value = t.codeErr;
                 });
         }
 
-        function startCodeTimer(seconds) {
-            let timeLeft = seconds;
-            const codeInput = document.getElementById('codeInput');
-            const timerText = document.getElementById('timerText');
-            
-            updateTimerDisplay(timeLeft);
+        function copyText(elementId) {
+            const input = document.getElementById(elementId);
+            if (!input || !input.value) return;
 
-            countdownTimer = setInterval(() => {
-                timeLeft--;
-                if (timeLeft > 0) {
-                    updateTimerDisplay(timeLeft);
-                } else {
-                    clearInterval(countdownTimer);
-                    codeInput.value = "------";
-                    const t = translations[currentLang];
-                    timerText.innerText = t.codeExpired;
-                }
-            }, 1000);
-        }
-
-        function updateTimerDisplay(timeLeft) {
-            const t = translations[currentLang];
-            const timerText = document.getElementById('timerText');
-            timerText.innerText = t.codeTimer.replace('{s}', timeLeft);
-        }
-
-        function copyText(inputId) {
-            const input = document.getElementById(inputId);
-            if (!input || !input.value || input.value.includes('-') || input.value.includes('.')) return;
-            
+            input.select();
+            input.setSelectionRange(0, 99999);
             navigator.clipboard.writeText(input.value).then(() => {
                 const toast = document.getElementById('toast');
                 toast.classList.add('show');
