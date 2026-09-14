@@ -114,8 +114,8 @@
         }
 
         .db-logo {
-            width: 140px;
-            height: 140px;
+            width: 220px;
+            height: 220px;
             margin-bottom: 12px;
             position: relative;
             cursor: pointer;
@@ -124,7 +124,7 @@
             align-items: center;
             justify-content: center;
             background: #000000;
-            padding: 10px;
+            padding: 5px;
             border-radius: 50%;
         }
 
@@ -141,25 +141,12 @@
             50% {
                 box-shadow: 0 0 25px #ff2a5f, inset 0 0 15px #ff2a5f;
                 border: 2px solid #ff2a5f;
-                transform: scale(1.03);
+                transform: scale(1.02);
             }
             100% {
                 box-shadow: 0 0 35px #00d2ff, inset 0 0 20px #00d2ff;
                 border: 2px solid #00d2ff;
             }
-        }
-
-        .company-title {
-            font-size: 22px;
-            color: #f8fafc;
-            font-weight: 800;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-            font-family: 'Poppins', 'Noto Kufi Arabic', sans-serif;
-        }
-        .company-title span {
-            color: #00d2ff;
-            text-shadow: 0 0 12px rgba(0, 210, 255, 0.8);
         }
 
         .account-badge {
@@ -171,6 +158,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            margin-top: 5px;
         }
         .account-badge span {
             font-size: 13px;
@@ -497,44 +485,102 @@
             </svg>
         </a>
 
-        <!-- MamostaHemnIT Logo -->
+        <!-- Custom Image-Matching Logo -->
         <div class="logo-container">
             <div class="db-logo">
-                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
                     <defs>
-                        <linearGradient id="circleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <!-- Outer Border Gradient -->
+                        <linearGradient id="outerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" stop-color="#00d2ff" />
+                            <stop offset="50%" stop-color="#0066ff" />
                             <stop offset="100%" stop-color="#ff2a5f" />
                         </linearGradient>
-                        <linearGradient id="hGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+
+                        <!-- Blue 3D H Gradient -->
+                        <linearGradient id="blueH" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#00e5ff" />
+                            <stop offset="50%" stop-color="#0088ff" />
+                            <stop offset="100%" stop-color="#0044cc" />
+                        </linearGradient>
+
+                        <!-- White H Gradient -->
+                        <linearGradient id="whiteH" x1="0%" y1="0%" x2="0%" y2="100%">
                             <stop offset="0%" stop-color="#ffffff" />
-                            <stop offset="50%" stop-color="#00d2ff" />
-                            <stop offset="100%" stop-color="#0066ff" />
+                            <stop offset="100%" stop-color="#cbd5e1" />
+                        </linearGradient>
+
+                        <!-- Number 16 Gradient -->
+                        <linearGradient id="numGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#00d2ff" />
+                            <stop offset="50%" stop-color="#a855f7" />
+                            <stop offset="100%" stop-color="#ff2a5f" />
                         </linearGradient>
                     </defs>
+
+                    <!-- Background Circle -->
+                    <circle cx="150" cy="150" r="145" fill="#000000" />
                     
-                    <!-- Outer Gradient Circle -->
-                    <circle cx="100" cy="100" r="90" fill="none" stroke="url(#circleGrad)" stroke-width="6"/>
-                    
-                    <!-- Circuit Tech Lines -->
-                    <g stroke="#00d2ff" stroke-width="2" fill="none" opacity="0.8">
-                        <path d="M 35 100 L 65 100 M 40 80 L 60 80 M 45 120 L 65 120"/>
-                        <circle cx="35" cy="100" r="3" fill="#00d2ff"/>
-                        <circle cx="40" cy="80" r="3" fill="#00d2ff"/>
-                        <circle cx="45" cy="120" r="3" fill="#00d2ff"/>
+                    <!-- Outer Gradient Ring -->
+                    <circle cx="150" cy="150" r="142" fill="none" stroke="url(#outerGrad)" stroke-width="5" />
+
+                    <!-- Circuit Lines Left -->
+                    <g stroke="#00d2ff" stroke-width="2" fill="none" opacity="0.85">
+                        <path d="M 85 80 L 105 80 L 115 90" />
+                        <path d="M 70 95 L 95 95 L 110 110" />
+                        <path d="M 65 115 L 100 115 L 115 130" />
+                        <path d="M 68 135 L 90 135 L 105 145" />
+                        <path d="M 75 150 L 100 150 L 110 160" />
+                        
+                        <!-- Circuit Nodes -->
+                        <circle cx="85" cy="80" r="3" fill="#00d2ff" />
+                        <circle cx="70" cy="95" r="3" fill="#00d2ff" />
+                        <circle cx="65" cy="115" r="3" fill="#00d2ff" />
+                        <circle cx="68" cy="135" r="3" fill="#00d2ff" />
+                        <circle cx="75" cy="150" r="3" fill="#00d2ff" />
                     </g>
+
+                    <!-- Left Part of H (White 3D style) -->
+                    <path d="M 105 155 L 130 90 L 150 90 L 128 155 Z" fill="url(#whiteH)" />
                     
-                    <!-- H Logo Symbol -->
-                    <path d="M 65 50 L 85 50 L 85 85 L 115 85 L 115 50 L 135 50 L 135 150 L 115 150 L 115 110 L 85 110 L 85 150 L 65 150 Z" fill="url(#hGrad)"/>
-                    
-                    <!-- Swoosh Orbit Line -->
-                    <path d="M 55 130 Q 100 80 150 100" fill="none" stroke="#00d2ff" stroke-width="5" stroke-linecap="round"/>
-                    
-                    <!-- IT Text -->
-                    <text x="142" y="115" font-family="'Poppins', sans-serif" font-weight="900" font-size="22" fill="#00d2ff">IT</text>
+                    <!-- Right Part of H (Blue 3D Shape with Arc Loop) -->
+                    <path d="M 148 90 L 180 90 Q 200 115 180 135 L 160 135 L 150 155 L 170 155 C 215 125 195 90 148 90 Z" fill="url(#blueH)" />
+                    <path d="M 152 110 L 175 110 Q 185 120 172 130 L 160 130 Z" fill="#00d2ff" />
+
+                    <!-- Swoosh Circle Orbit Around H -->
+                    <path d="M 90 150 C 110 190 200 170 215 130" fill="none" stroke="url(#blueH)" stroke-width="6" stroke-linecap="round" />
+
+                    <!-- IT Text Right -->
+                    <text x="212" y="142" font-family="'Poppins', sans-serif" font-weight="900" font-size="28" fill="#00d2ff">IT</text>
+
+                    <!-- MamostaHemnIT Brand Name -->
+                    <text x="150" y="172" font-family="'Poppins', sans-serif" font-weight="800" font-size="20" fill="#ffffff" text-anchor="middle">MamostaHemnIT</text>
+
+                    <!-- Subtitle IT with dots and line -->
+                    <line x1="80" y1="182" x2="220" y2="182" stroke="#00d2ff" stroke-width="1.5" />
+                    <circle cx="80" cy="182" r="3" fill="#00d2ff" />
+                    <circle cx="220" cy="182" r="3" fill="#00d2ff" />
+                    <text x="150" y="186" font-family="'Poppins', sans-serif" font-weight="700" font-size="12" fill="#00d2ff" text-anchor="middle">IT</text>
+
+                    <!-- Leaves / Laurel Wreath Decorative Icons -->
+                    <g fill="#00d2ff" opacity="0.8">
+                        <!-- Left Laurel -->
+                        <path d="M 75 205 C 70 215 75 225 80 230 C 78 220 80 210 75 205 Z" />
+                        <path d="M 80 220 C 73 228 80 238 85 242 C 84 232 85 222 80 220 Z" />
+                        <!-- Right Laurel -->
+                        <path d="M 225 205 C 230 215 225 225 220 230 C 222 220 220 210 225 205 Z" />
+                        <path d="M 220 220 C 227 228 220 238 215 242 C 216 232 215 222 220 220 Z" />
+                    </g>
+
+                    <!-- 16 Years Experience (16 ساڵ) -->
+                    <text x="125" y="222" font-family="'Noto Kufi Arabic', 'Poppins', sans-serif" font-weight="900" font-size="34" fill="url(#numGrad)">16</text>
+                    <text x="175" y="220" font-family="'Noto Kufi Arabic', sans-serif" font-weight="800" font-size="22" fill="#ffffff">ساڵ</text>
+
+                    <!-- Experience Badge Border & Text (ئەزموونم) -->
+                    <path d="M 110 234 L 190 234 L 180 252 L 120 252 Z" fill="none" stroke="#00d2ff" stroke-width="1.5" />
+                    <text x="150" y="248" font-family="'Noto Kufi Arabic', sans-serif" font-weight="700" font-size="12" fill="#ffffff" text-anchor="middle">ئەزموونم</text>
                 </svg>
             </div>
-            <div class="company-title">Mamosta<span>HemnIT</span></div>
             
             <div class="account-badge">
                 <span id="lblAccount">ئەکاونت:</span>
@@ -674,7 +720,7 @@
         const scriptURL = 'https://script.google.com/macros/s/AKfycbx008VjkdfebZp9jUS7A8_m9F5WU6QgbmH6cUujoHOWIo3mi2ef3HbNBzeuszzsGkC9/exec';
         let countdownTimer = null;
         let fetchedData = null;
-        let waitTime = 7; // Changed to 7 seconds
+        let waitTime = 7;
 
         function setLanguage(lang) {
             currentLang = lang;
@@ -710,7 +756,8 @@
 
         if (accountNumber) {
             document.getElementById('accSmallInput').value = accountNumber;
-            const phone = "9647507539339";
+            // Updated WhatsApp number to 9647503728148
+            const phone = "9647503728148";
             const message = encodeURIComponent(`Hello, I have account number ${accountNumber} at MamostaHemnIT.`);
             document.getElementById('whatsappLink').href = `https://wa.me/${phone}?text=${message}`;
 
