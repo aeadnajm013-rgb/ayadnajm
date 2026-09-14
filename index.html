@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABO PHONE - Account Info</title>
+    <title>MamostaHemnIT - Account Info</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;600;700;800&family=Poppins:wght@500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         * {
@@ -15,7 +15,7 @@
         
         body {
             background: #030712;
-            background: radial-gradient(circle at top, #141000 0%, #030712 100%);
+            background: radial-gradient(circle at top, #0f172a 0%, #030712 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -23,11 +23,11 @@
             padding: 20px;
         }
         .container {
-            background: rgba(15, 15, 18, 0.95);
+            background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 2px solid #eab308;
-            box-shadow: 0 0 25px rgba(234, 179, 8, 0.25);
+            border: 2px solid #00d2ff;
+            box-shadow: 0 0 25px rgba(0, 210, 255, 0.25);
             width: 100%;
             max-width: 440px;
             border-radius: 28px;
@@ -47,7 +47,7 @@
             background: rgba(3, 7, 18, 0.8);
             padding: 3px;
             border-radius: 20px;
-            border: 1px solid #ca8a04;
+            border: 1px solid #00d2ff;
             z-index: 10;
         }
         [dir="ltr"] .lang-switcher {
@@ -67,9 +67,9 @@
             font-family: 'Poppins', sans-serif;
         }
         .lang-btn.active {
-            background: #eab308;
+            background: #00d2ff;
             color: #030712;
-            box-shadow: 0 0 8px rgba(234, 179, 8, 0.5);
+            box-shadow: 0 0 8px rgba(0, 210, 255, 0.5);
         }
 
         /* WhatsApp Circular Banner */
@@ -115,7 +115,7 @@
 
         .db-logo {
             width: 140px;
-            height: 120px;
+            height: 140px;
             margin-bottom: 12px;
             position: relative;
             cursor: pointer;
@@ -123,9 +123,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #090803;
+            background: #000000;
             padding: 10px;
-            border-radius: 18px;
+            border-radius: 50%;
         }
 
         .db-logo svg {
@@ -135,17 +135,17 @@
 
         @keyframes ledPulse {
             0% {
-                box-shadow: 0 0 12px #ca8a04, inset 0 0 8px #ca8a04;
-                border: 2px solid #ca8a04;
+                box-shadow: 0 0 12px #00d2ff, inset 0 0 8px #00d2ff;
+                border: 2px solid #00d2ff;
             }
             50% {
-                box-shadow: 0 0 25px #eab308, inset 0 0 15px #eab308;
-                border: 2px solid #fde047;
+                box-shadow: 0 0 25px #ff2a5f, inset 0 0 15px #ff2a5f;
+                border: 2px solid #ff2a5f;
                 transform: scale(1.03);
             }
             100% {
-                box-shadow: 0 0 35px #a16207, inset 0 0 20px #a16207;
-                border: 2px solid #a16207;
+                box-shadow: 0 0 35px #00d2ff, inset 0 0 20px #00d2ff;
+                border: 2px solid #00d2ff;
             }
         }
 
@@ -158,14 +158,14 @@
             font-family: 'Poppins', 'Noto Kufi Arabic', sans-serif;
         }
         .company-title span {
-            color: #eab308;
-            text-shadow: 0 0 12px rgba(234, 179, 8, 0.8);
+            color: #00d2ff;
+            text-shadow: 0 0 12px rgba(0, 210, 255, 0.8);
         }
 
         .account-badge {
             background: rgba(3, 7, 18, 0.9);
-            border: 1px solid #eab308;
-            box-shadow: 0 0 10px rgba(234, 179, 8, 0.3);
+            border: 1px solid #00d2ff;
+            box-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
             padding: 5px 14px;
             border-radius: 20px;
             display: inline-flex;
@@ -180,7 +180,7 @@
         .account-badge input {
             background: transparent;
             border: none;
-            color: #fde047;
+            color: #38bdf8;
             font-size: 15px;
             font-weight: 700;
             width: 75px;
@@ -265,8 +265,8 @@
             display: flex;
             align-items: center;
             background: rgba(3, 7, 18, 0.8);
-            border: 1px solid #ca8a04;
-            box-shadow: 0 0 8px rgba(202, 138, 4, 0.2);
+            border: 1px solid #00d2ff;
+            box-shadow: 0 0 8px rgba(0, 210, 255, 0.2);
             border-radius: 12px;
             overflow: hidden;
             transition: all 0.3s ease;
@@ -283,11 +283,11 @@
             font-family: 'Poppins', 'Noto Kufi Arabic', sans-serif;
         }
         .copy-btn {
-            background: rgba(45, 36, 10, 0.8);
+            background: rgba(15, 23, 42, 0.8);
             border: none;
             padding: 0 14px;
             cursor: pointer;
-            color: #fde047;
+            color: #38bdf8;
             font-size: 12px;
             font-weight: 700;
             transition: background 0.2s, color 0.2s;
@@ -301,16 +301,16 @@
             border-left: 1px solid rgba(255, 255, 255, 0.05);
         }
         .copy-btn:hover {
-            background: #ca8a04;
+            background: #00d2ff;
             color: #ffffff;
-            box-shadow: 0 0 10px #ca8a04;
+            box-shadow: 0 0 10px #00d2ff;
         }
         
         .action-fetch-box {
             margin: 14px 0;
             background: rgba(3, 7, 18, 0.95);
-            border: 1.5px solid #eab308;
-            box-shadow: 0 0 12px rgba(234, 179, 8, 0.25);
+            border: 1.5px solid #00d2ff;
+            box-shadow: 0 0 12px rgba(0, 210, 255, 0.25);
             border-radius: 14px;
             padding: 12px;
             text-align: right;
@@ -319,30 +319,30 @@
             text-align: left;
         }
         .action-fetch-box .field-label {
-            color: #fde047;
+            color: #38bdf8;
             font-weight: 700;
             margin-bottom: 6px;
         }
         .fetch-btn {
             display: block;
             width: 100%;
-            background: linear-gradient(135deg, #ca8a04 0%, #854d0e 100%);
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
             color: #ffffff;
-            border: 1px solid #fde047;
+            border: 1px solid #38bdf8;
             cursor: pointer;
             padding: 9px;
             border-radius: 8px;
             font-size: 12px;
             font-weight: 700;
-            box-shadow: 0 0 10px rgba(202, 138, 4, 0.4);
+            box-shadow: 0 0 10px rgba(2, 132, 199, 0.4);
             transition: all 0.2s ease;
             margin-top: 8px;
         }
 
         .code-display-box {
             background: #020617;
-            border: 1.5px solid #fde047;
-            box-shadow: 0 0 10px rgba(253, 224, 71, 0.3), inset 0 0 6px rgba(253, 224, 71, 0.15);
+            border: 1.5px solid #00d2ff;
+            box-shadow: 0 0 10px rgba(0, 210, 255, 0.3), inset 0 0 6px rgba(0, 210, 255, 0.15);
             border-radius: 10px;
             padding: 4px 8px;
             display: flex;
@@ -352,7 +352,7 @@
         .code-input-field {
             background: transparent;
             border: none;
-            color: #fde047;
+            color: #38bdf8;
             font-size: 16px;
             font-weight: 800;
             text-align: center;
@@ -372,9 +372,9 @@
 
         .show-modal-btn {
             width: 100%;
-            background: rgba(30, 25, 10, 0.8);
-            border: 1.5px solid #eab308;
-            color: #fde047;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1.5px solid #00d2ff;
+            color: #38bdf8;
             padding: 10px;
             border-radius: 12px;
             font-size: 13px;
@@ -386,12 +386,12 @@
             gap: 8px;
             margin-top: 15px;
             transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(234, 179, 8, 0.2);
+            box-shadow: 0 0 10px rgba(0, 210, 255, 0.2);
         }
         .show-modal-btn:hover {
-            background: #713f12;
+            background: #0284c7;
             color: #ffffff;
-            box-shadow: 0 0 15px rgba(234, 179, 8, 0.5);
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.5);
         }
 
         .modal-overlay {
@@ -416,9 +416,9 @@
             pointer-events: auto;
         }
         .modal-card {
-            background: rgba(15, 15, 18, 0.98);
-            border: 2px solid #fde047;
-            box-shadow: 0 0 25px rgba(253, 224, 71, 0.4);
+            background: rgba(15, 23, 42, 0.98);
+            border: 2px solid #00d2ff;
+            box-shadow: 0 0 25px rgba(0, 210, 255, 0.4);
             border-radius: 20px;
             width: 100%;
             max-width: 380px;
@@ -442,7 +442,7 @@
             padding-bottom: 8px;
         }
         .modal-title {
-            color: #fde047;
+            color: #38bdf8;
             font-size: 14px;
             font-weight: 800;
         }
@@ -497,27 +497,44 @@
             </svg>
         </a>
 
-        <!-- ABO Phone Logo -->
+        <!-- MamostaHemnIT Logo -->
         <div class="logo-container">
             <div class="db-logo">
-                <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="25" y="15" width="75" height="135" rx="12" fill="none" stroke="#eab308" stroke-width="6"/>
-                    <rect x="52" y="22" width="20" height="5" rx="2" fill="#eab308"/>
-                    <path d="M 38 125 L 62 45 L 86 125 M 46 95 L 78 95 L 62 112" fill="none" stroke="#fde047" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="circleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#00d2ff" />
+                            <stop offset="100%" stop-color="#ff2a5f" />
+                        </linearGradient>
+                        <linearGradient id="hGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ffffff" />
+                            <stop offset="50%" stop-color="#00d2ff" />
+                            <stop offset="100%" stop-color="#0066ff" />
+                        </linearGradient>
+                    </defs>
                     
-                    <path d="M 120 45 L 148 45 C 168 45 168 78 148 78 L 120 78 L 120 45 Z" fill="none" stroke="#fde047" stroke-width="7" stroke-linejoin="round"/>
-                    <path d="M 120 78 L 152 78 C 174 78 174 115 152 115 L 120 115 L 120 78 Z" fill="none" stroke="#fde047" stroke-width="7" stroke-linejoin="round"/>
-                    <circle cx="140" cy="62" r="4" fill="#fde047"/>
-                    <circle cx="143" cy="96" r="4" fill="#fde047"/>
-
-                    <circle cx="215" cy="80" r="32" fill="none" stroke="#fde047" stroke-width="7"/>
-                    <circle cx="215" cy="80" r="18" fill="none" stroke="#fde047" stroke-width="3" stroke-dasharray="4 2"/>
-
-                    <line x1="110" y1="123" x2="245" y2="123" stroke="#eab308" stroke-width="3"/>
-                    <text x="178" y="148" font-family="'Poppins', sans-serif" font-weight="800" font-size="22" fill="#fde047" text-anchor="middle" letter-spacing="2">Phone</text>
+                    <!-- Outer Gradient Circle -->
+                    <circle cx="100" cy="100" r="90" fill="none" stroke="url(#circleGrad)" stroke-width="6"/>
+                    
+                    <!-- Circuit Tech Lines -->
+                    <g stroke="#00d2ff" stroke-width="2" fill="none" opacity="0.8">
+                        <path d="M 35 100 L 65 100 M 40 80 L 60 80 M 45 120 L 65 120"/>
+                        <circle cx="35" cy="100" r="3" fill="#00d2ff"/>
+                        <circle cx="40" cy="80" r="3" fill="#00d2ff"/>
+                        <circle cx="45" cy="120" r="3" fill="#00d2ff"/>
+                    </g>
+                    
+                    <!-- H Logo Symbol -->
+                    <path d="M 65 50 L 85 50 L 85 85 L 115 85 L 115 50 L 135 50 L 135 150 L 115 150 L 115 110 L 85 110 L 85 150 L 65 150 Z" fill="url(#hGrad)"/>
+                    
+                    <!-- Swoosh Orbit Line -->
+                    <path d="M 55 130 Q 100 80 150 100" fill="none" stroke="#00d2ff" stroke-width="5" stroke-linecap="round"/>
+                    
+                    <!-- IT Text -->
+                    <text x="142" y="115" font-family="'Poppins', sans-serif" font-weight="900" font-size="22" fill="#00d2ff">IT</text>
                 </svg>
             </div>
-            <div class="company-title">ABO <span>PHONE</span></div>
+            <div class="company-title">Mamosta<span>HemnIT</span></div>
             
             <div class="account-badge">
                 <span id="lblAccount">ئەکاونت:</span>
@@ -535,7 +552,7 @@
                 <strong>تکایە کاتێک Apple ID داخل کرد ڕاستەوخۆ بیخەرە سەر ژمارەی موبایلی خۆت.</strong>
             </div>
             <button id="acceptBtn" class="accept-btn" disabled onclick="acceptAgreement()">
-                چاوەڕوان بە (5)...
+                چاوەڕوان بە (7)...
             </button>
         </div>
 
@@ -657,7 +674,7 @@
         const scriptURL = 'https://script.google.com/macros/s/AKfycbx008VjkdfebZp9jUS7A8_m9F5WU6QgbmH6cUujoHOWIo3mi2ef3HbNBzeuszzsGkC9/exec';
         let countdownTimer = null;
         let fetchedData = null;
-        let waitTime = 5;
+        let waitTime = 7; // Changed to 7 seconds
 
         function setLanguage(lang) {
             currentLang = lang;
@@ -694,7 +711,7 @@
         if (accountNumber) {
             document.getElementById('accSmallInput').value = accountNumber;
             const phone = "9647507539339";
-            const message = encodeURIComponent(`Hello, I have account number ${accountNumber} at ABO PHONE.`);
+            const message = encodeURIComponent(`Hello, I have account number ${accountNumber} at MamostaHemnIT.`);
             document.getElementById('whatsappLink').href = `https://wa.me/${phone}?text=${message}`;
 
             fetch(`${scriptURL}?account=${accountNumber}`)
